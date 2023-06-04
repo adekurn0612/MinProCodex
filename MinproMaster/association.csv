@@ -1,0 +1,7 @@
+1:N, skty_name,skty_name , skill_type, skill_template
+1:N,  module_name,roac_module_name , modules,route_actions
+1:N, country_code , prov_country_code , country,province
+1:N, prov_id, city_prov_id , province , city
+1:N,  city_id, addr_city_id , city , address
+1:N,cate_id,cate_cate_id,category,category
+1:N,skte_id,skte_skte_id,skill_template,skill_template
