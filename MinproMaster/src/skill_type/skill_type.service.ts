@@ -14,8 +14,13 @@ async  create(createSkillTypeDto: CreateSkillTypeDto) {
     }
   }
 
-  findAll() {
-    return `This action returns all skillType`;
+  async findAll() {
+    try{
+    const result = await skill_type.findAll();
+    return result
+    }catch(e){
+      return e.message
+    }
   }
 
   findOne(id: number) {

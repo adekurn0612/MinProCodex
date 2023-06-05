@@ -14,8 +14,14 @@ export class ModulesService {
     }
   }
 
-  findAll() {
-    return `This action returns all modules`;
+  async findAll() {
+    try {
+      const result = await modules.findAll();
+      return result
+    } catch (error) {
+      return error.message
+      
+    }
   }
 
   findOne(id: number) {

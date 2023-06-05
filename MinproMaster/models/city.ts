@@ -34,7 +34,7 @@ export class city
   })
   city_id?: number;
 
-  @Column({ allowNull: true, type: DataType.STRING(115) })
+  @Column({ allowNull: true, type: DataType.STRING(155) })
   city_name?: string;
 
   @Column({

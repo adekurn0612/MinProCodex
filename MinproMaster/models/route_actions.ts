@@ -11,7 +11,7 @@ import {
 import { modules } from './modules';
 
 export interface route_actionsAttributes {
-  roac_id?: number;
+  roac_id: number;
   roac_name?: string;
   roac_orderby?: number;
   roac_display?: string;
@@ -23,8 +23,8 @@ export class route_actions
   extends Model<route_actionsAttributes, route_actionsAttributes>
   implements route_actionsAttributes
 {
-  @Column({ allowNull: true, type: DataType.INTEGER })
-  roac_id?: number;
+  @Column({ primaryKey: true, type: DataType.INTEGER })
+  roac_id!: number;
 
   @Column({ allowNull: true, type: DataType.STRING(15) })
   roac_name?: string;

@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SkillTypeModule } from './skill_type/skill_type.module';
 import { SkillTemplateModule } from './skill_template/skill_template.module';
-import { address, city, country, modules, province, route_actions, skill_template, skill_type } from 'models';
+import { address, category, city, country, modules, province, route_actions, skill_template, skill_type } from 'models';
 import { ModulesModule } from './modules/modules.module';
 import { RouteActionsModule } from './route_actions/route_actions.module';
 import { CategoryModule } from './category/category.module';
@@ -25,8 +25,8 @@ import { AddressTypeModule } from './address_type/address_type.module';
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         schema: process.env.DB_SCHEMA,
-        models: [skill_template,skill_type,route_actions,modules],
-        autoLoadmodels: true, //untuk generate semua tabel
+        models: [skill_template,skill_type,route_actions,modules,category],
+        autoLoadModels : true, //untuk generate semua tabel
       }),
     }),
     ConfigModule.forRoot({
