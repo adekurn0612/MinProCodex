@@ -5,7 +5,7 @@ import { GrAddCircle } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
 import { useDispatch, useSelector } from 'react-redux'
 
-const SkillType = (skillType : any) => {
+const SkillType = (props : any) => {
 
   return (
     <div className="flex flex-col">
@@ -29,8 +29,8 @@ const SkillType = (skillType : any) => {
                 </th>
                 </tr>
               </thead>
-              <tbody>
-                {skillType.map((stype : any, index : any) => (
+              <tbody >
+                {props.skillType.map((stype : any, index : any) => (
                   <tr
                     key={index}
                     className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600"}

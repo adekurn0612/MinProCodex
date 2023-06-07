@@ -12,7 +12,7 @@ export class SkillTemplateService {
   async findAll() {
    try {
      const result = await skill_template.findAll();
-     return result;
+     return result[0][0];
    } catch (error) {
     return error.message
    }

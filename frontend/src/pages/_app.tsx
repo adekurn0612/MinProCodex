@@ -1,6 +1,7 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
 import Layout from './shared/layout';
+import { Input, ThemeProvider } from '@material-tailwind/react';
 import Store from '@/redux/store';
 import { Provider } from 'react-redux';
 

@@ -1,1 +1,1 @@
-pg_dump -U postgres -h localhost -d codex_revamp 
+pg_dump -U postgres -h localhost -d nama_dbnya > output_db.sql

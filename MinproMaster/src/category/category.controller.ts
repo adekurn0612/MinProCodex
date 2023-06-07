@@ -9,8 +9,13 @@ export class CategoryController {
 
   @Post()
   create(@Body() createCategoryDto: CreateCategoryDto) {
-    return this.categoryService.create(createCategoryDto);
+    const data = {
+      cate_name: createCategoryDto.cate_name,
+      cate_cate_id: createCategoryDto.cate_cate_id,
+    };
+    return this.categoryService.create(data);
   }
+  
 
   @Get()
   findAll() {
@@ -24,7 +29,11 @@ export class CategoryController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCategoryDto: UpdateCategoryDto) {
-    return this.categoryService.update(+id, updateCategoryDto);
+    const data = {
+      cate_name: updateCategoryDto.cate_name,
+      cate_cate_id: updateCategoryDto.cate_cate_id,
+    };
+    return this.categoryService.update(+id,data);
   }
 
   @Delete(':id')

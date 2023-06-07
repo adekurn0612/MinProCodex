@@ -2,22 +2,28 @@ import { Injectable } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { category } from 'models';
+import { Sequelize } from 'sequelize-typescript';
 
 @Injectable()
 export class CategoryService {
+  constructor(
+    private sequelize: Sequelize){}
   
- async create(createCategoryDto: CreateCategoryDto) {
-   try {
-    const result = await category.create(createCategoryDto);
-    return result
-   } catch (error) {
-    return error.message
-   }
-  }
+    async create(data: CreateCategoryDto) {
+      try {
+        const createCategoryDtoJson = JSON.stringify(data);
+        const result = await this.sequelize.query(`CALL master.insertcategory('${createCategoryDtoJson}');`);
+        return result;
+      } catch (error) {
+        return error.message;
+      }
+    }
+    
 
   async findAll() {
     try {
-      const result = await category.findAll();
+      const result= await this.sequelize.query(` 
+      select * from master.view `);
       return result;
     } catch (error) {
       return error.message
@@ -28,11 +34,25 @@ export class CategoryService {
     return `This action returns a #${id} category`;
   }
 
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`;
+  async update(id: number, data: UpdateCategoryDto) {
+    try {
+      const createCategoryDtoJson = JSON.stringify(data);
+      const result = await this.sequelize.query(`CALL master.updatecategory(${id}, '${data}')`);
+      return result;
+    } catch (error) {
+      return error.message;
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} category`;
+  async remove(id : any) {
+    try {
+      const result= await this.sequelize.query(`CALL master.delete_category_with_nulls(${id}); 
+      `);
+      return result;
+      return result;
+    } catch (error) {
+      throw error.message;
+    }
   }
+  
 }

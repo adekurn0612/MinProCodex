@@ -10,9 +10,9 @@ const initialState ={
 
 export default function SkillTempeleteReduce(state = initialState, action :any) {
         const {type , payload} = action;
-        // console.log(payload)
+        console.log(payload)
         switch (type) {
-            case ActionType.GET_CAT_RESPONSE:
+            case ActionType.SKILL_TEMPLETE_RESPONSE:
             return {state , skillTemplete:payload ,status:payload.status, refresh:true};
             default:
                 return state;

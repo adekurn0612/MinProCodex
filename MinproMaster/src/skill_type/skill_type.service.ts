@@ -17,7 +17,7 @@ async  create(createSkillTypeDto: CreateSkillTypeDto) {
   async findAll() {
     try{
     const result = await skill_type.findAll();
-    return result
+    return result;
     }catch(e){
       return e.message
     }

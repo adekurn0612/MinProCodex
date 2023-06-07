@@ -1,6 +1,7 @@
+
 import { call, put } from "redux-saga/effects"
-import { resCat } from "../actions/actionReducer"
-import apiMethod from "@/api/apiMethod"
+import { resCat, resCreateCat, resDelCat, resUpdateCat } from "../actions/actionReducer"
+import apiMethod from "@/pages/api/apiMethod"
 
 function* handleGetCat ():any{
     try {
@@ -11,6 +12,38 @@ function* handleGetCat ():any{
     }
 }
 
+function* handleCreateCat (action : any):any{
+    // console.log('kntl',data)
+    try {
+        const result = yield call(apiMethod.createCat, action.payload)
+        yield put(resCreateCat(result.data))
+    } catch (error) {
+        yield put(resCreateCat({message:error, status:400}))
+    }
+}
+
+function* handleupdateCat (data : any) :any{
+    try {
+        const result = yield call(apiMethod.updateCat , data.payload)
+        yield put(resUpdateCat(result.data))
+    } catch (error) {
+        yield put(resUpdateCat({message:error, status:400}))
+    }
+}
+
+function* handleDelCat (id : any):any{
+    try {
+        const result = yield call(apiMethod.delCat ,id.payload)
+        yield put(resDelCat(result.data))
+    } catch (error) {
+        yield put(resDelCat({message:error, status:400}))
+    }
+}
+
 export {
-    handleGetCat
+    handleGetCat,
+    handleCreateCat,
+    handleDelCat,
+    handleupdateCat,
+
 }

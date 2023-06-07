@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects"
 import { resCat, resSkillTemplete } from "../actions/actionReducer"
-import apiMethod from "@/api/apiMethod"
+import apiMethod from "@/pages/api/apiMethod"
 
 function* handleGeSkillTemplete ():any{
     try {

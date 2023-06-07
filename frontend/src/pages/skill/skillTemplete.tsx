@@ -5,7 +5,7 @@ import { GrAddCircle } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
 import { useDispatch, useSelector } from 'react-redux'
 
-const SkillTemplete = (skillTemplete : any) => {
+const SkillTemplete = (props : any) => {
 
    
   return (
@@ -45,14 +45,14 @@ const SkillTemplete = (skillTemplete : any) => {
                 </th>
                 </tr>
               </thead>
-              <tbody>
-                {skillTemplete.map((st : any, index : any) => (
+              <tbody >
+                {props.skillTemplete.map((st : any, index : any) => (
                   <tr
                     key={index}
-                    className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600"}
+                    className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600" }
                   >
-                    <td className="whitespace-nowrap px-6 py-4">{}</td>
-                    <td className="whitespace-nowrap px-6 py-4">{}</td>
+                    <td className="whitespace-nowrap px-6 py-4">1</td>
+                    <td className="whitespace-nowrap px-6 py-4">1</td>
                     <td className="whitespace-nowrap px-6 py-4"></td>
                     <td className="whitespace-nowrap px-6 py-4">{}</td>
                     <td className="whitespace-nowrap px-6 py-4"></td>
