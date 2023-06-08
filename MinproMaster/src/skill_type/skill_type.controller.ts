@@ -22,13 +22,14 @@ export class SkillTypeController {
     return this.skillTypeService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSkillTypeDto: UpdateSkillTypeDto) {
-    return this.skillTypeService.update(+id, updateSkillTypeDto);
+  @Patch(':skty_name')
+  update(@Param('skty_name') skty_name: string, @Body() updateSkillTypeDto: UpdateSkillTypeDto) {
+    return this.skillTypeService.update(skty_name, updateSkillTypeDto);
   }
+  
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.skillTypeService.remove(+id);
+  @Delete(':skty_name')
+  remove(@Param('skty_name') skty_name: string) {
+    return this.skillTypeService.remove(skty_name);
   }
 }

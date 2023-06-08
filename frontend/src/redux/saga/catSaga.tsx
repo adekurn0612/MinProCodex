@@ -22,9 +22,11 @@ function* handleCreateCat (action : any):any{
     }
 }
 
-function* handleupdateCat (data : any) :any{
+function* handleupdateCat (action: any) :any{
+    console.log('ct', action)
     try {
-        const result = yield call(apiMethod.updateCat , data.payload)
+        const result = yield call(apiMethod.updateCat , action.payload)
+        console.log('ct', action.payload)
         yield put(resUpdateCat(result.data))
     } catch (error) {
         yield put(resUpdateCat({message:error, status:400}))

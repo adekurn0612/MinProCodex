@@ -17,7 +17,8 @@ const getallCat = () => {
           });
       }
   const updateCat=(data : any)=>{
-    return axios.put(`category/${data.id}`,data )
+    // console.log('DATA API',data)
+    return axios.patch(`category/${data.cate_id}`,data )
   }
 
   const createCat=(data : any)=>{
@@ -27,6 +28,21 @@ const getallCat = () => {
   const delCat=(id: any)=>{
     console.log(id)
     return axios.delete(`category/${id}`)
+  }
+
+  const createSkillType=(data : any)=>{
+    console.log('api',data)
+    return axios.post(`skill-type`, data)
+  }
+
+  const delSkillType =(data : any)=>{
+    console.log('del' , data)
+    return axios.delete(`skill-type/${data.skty_name}`)
+  }
+
+  const updateSkillType = (data : any)=>{
+    console.log(data)
+    return axios.patch(`skill-type/${data.skty_name}`,data)
   }
       
 const getallSkillTemplete = () => {
@@ -39,5 +55,8 @@ export default  {
     getallSkillType,
     getallSkillTemplete,
     updateCat,
-    createCat
+    createCat,
+    createSkillType,
+    delSkillType,
+    updateSkillType
 }

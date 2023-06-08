@@ -36,8 +36,8 @@ export class CategoryService {
 
   async update(id: number, data: UpdateCategoryDto) {
     try {
-      const createCategoryDtoJson = JSON.stringify(data);
-      const result = await this.sequelize.query(`CALL master.updatecategory(${id}, '${data}')`);
+      // const createCategoryDtoJson = JSON.stringify(data);
+      const result = await this.sequelize.query(`CALL master.updatecategory('${id}', '${data.cate_name}' , '${data.cate_cate_id}')`);
       return result;
     } catch (error) {
       return error.message;

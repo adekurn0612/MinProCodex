@@ -26,6 +26,8 @@ const AddCategory = (props: any) => {
   const handleRegistration = async (data: FormValues) => {
     console.log('ini',data);
     dispatch(reqCreateCat(data));
+    props.closeModal()
+    
   };
   return (
     <div>

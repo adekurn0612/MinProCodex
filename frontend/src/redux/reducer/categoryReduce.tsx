@@ -10,16 +10,16 @@ const initialState ={
 
 export default function CatReduce(state = initialState, action :any) {
         const {type , payload} = action;
-        // console.log('payload',payload)
+        console.log('payload REDUCER',payload)
         switch (type) {
             case ActionType.GET_CAT_RESPONSE:
             return {state , category:payload ,status:payload.status, refresh:true};
             case ActionType.CREATE_CAT_RESPONSE:
-            return {state , category:payload ,status:payload.status, refresh:false};
+            return {state  ,status:payload.status, refresh:false};
             case ActionType.UPDATE_CAT_RESPONSE:
-            return {state , category:payload ,status:payload.status, refresh:false};
+            return {state  ,status:payload.status, refresh:false};
             case ActionType.DELETE_CAT_RESPONSE:
-            return {state , category:payload ,status:payload.status, refresh:false};
+            return {state ,status:payload.status, refresh:false};
             default:
                 return state;
             }
