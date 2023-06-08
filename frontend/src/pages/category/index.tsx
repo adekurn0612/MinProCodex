@@ -98,7 +98,7 @@ const handleDelete = async (id : number) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {category[0]?.map((cat :any, index :any) => (
+                  {category && category[0]?.map((cat :any, index :any) => (
                     <tr
                       key={cat.cat_id}
                       className={

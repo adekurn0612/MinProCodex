@@ -3,7 +3,7 @@ import { BsPencil } from 'react-icons/bs'
 import { GrAddCircle } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
 
-const Country = () => {
+const Country = (props : any) => {
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -30,13 +30,13 @@ const Country = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* {category.map((cat : any, index : any) => ( */}
+                {props.country.map((cont : any, index : any) => (
                   <tr
-                    // key={index}
-                    // className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600"}
+                    key={index}
+                    className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600"}
                   >
-                    <td className="whitespace-nowrap px-6 py-4 font-medium"></td>
-                    <td className="whitespace-nowrap px-6 py-4 font-medium"></td>
+                    <td className="whitespace-nowrap px-6 py-4 font-medium">{cont.country_code}</td>
+                    <td className="whitespace-nowrap px-6 py-4 font-medium">{cont.country_name}</td>
                     <td className="whitespace-nowrap px-6 py-4 text-right">
                     <div className="flex items-center justify-end">
                         <BsPencil className="mr-1"></BsPencil>
@@ -46,7 +46,7 @@ const Country = () => {
                     </div>
                     </td>
                   </tr>
-                 {/* ))}  */}
+                ))}  
               </tbody>
             </table>
           </div>

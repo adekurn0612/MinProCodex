@@ -1,17 +1,29 @@
-import React from 'react'
-import Modules from './modules'
-import RouteActions from './routeActions'
+import React, { useEffect } from 'react'
+import Modules from './module/modules'
+import RouteActions from './routeAction/routeActions'
 import BreadcrumbsSlice from '../shared/breadcrumbs'
+import { useDispatch, useSelector } from 'react-redux'
+import { reqGetModule, reqGetRouteAction } from '@/redux/actions/actionReducer'
 
 const index = () => {
+  const { modules , refresh} = useSelector((state : any) => state.modulesReducer);
+  const { routeActions} = useSelector((state :any) => state.routeActionsReducer);
+  const dispatch = useDispatch();
+console.log('object' , routeActions)
+
+  useEffect(() => {
+    dispatch(reqGetModule());
+    dispatch(reqGetRouteAction());
+  }, [refresh]);
+
   return (
     <><BreadcrumbsSlice />
     <div>
-            <div className="rounded bg-blue h-40 shadow-sm py-2">
-              <Modules />
+            <div className="rounded bg-blue h-auto shadow-sm py-2">
+              <Modules module={modules}/>
             </div>
-            <div className="rounded bg-blue h-40 shadow-sm py-2">
-              <RouteActions />
+            <div className="rounded bg-blue h-auto shadow-sm py-2">
+              <RouteActions routeActions={routeActions} />
             </div>
     </div>
     </>

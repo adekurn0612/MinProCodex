@@ -15,11 +15,11 @@ export default function CatReduce(state = initialState, action :any) {
             case ActionType.GET_CAT_RESPONSE:
             return {state , category:payload ,status:payload.status, refresh:true};
             case ActionType.CREATE_CAT_RESPONSE:
-            return {state  ,status:payload.status, refresh:false};
+            return {state  , refresh:false};
             case ActionType.UPDATE_CAT_RESPONSE:
-            return {state  ,status:payload.status, refresh:false};
+            return {state  , refresh:false};
             case ActionType.DELETE_CAT_RESPONSE:
-            return {state ,status:payload.status, refresh:false};
+            return {state , refresh:false};
             default:
                 return state;
             }

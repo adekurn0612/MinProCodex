@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SkillTemplete from './skillTemplete';
-import SkillType from './skillType';
+import SkillTemplete from './skillTemplete/skillTemplete';
+import SkillType from './skillType/skillType';
 import BreadcrumbsSlice from '../shared/breadcrumbs';
 import { reqSkillType } from '@/redux/actions/actionReducer';
 

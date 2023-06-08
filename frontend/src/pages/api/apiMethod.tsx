@@ -49,7 +49,55 @@ const getallSkillTemplete = () => {
             return axios.get('skill-templete')
             } 
 
+//modules
+const getModule = ()=>{
+  return axios.get('modules')
+  .then((response: { data: any; }) => {
+    console.log(response.data); // Menampilkan data respons ke konsol
+    return response.data; // Mengembalikan data respons
+  })
+  .catch((error: any) => {
+    console.error(error); // Menampilkan error ke konsol
+    throw error; // Melemparkan error untuk ditangani di tempat lain
+  });
+}
+
+// address type
+const getAddressType = ()=>{
+  return axios.get('address-type')
+  .then((response: { data: any; }) => {
+    console.log(response.data); // Menampilkan data respons ke konsol
+    return response.data; // Mengembalikan data respons
+  })
+  .catch((error: any) => {
+    console.error(error); // Menampilkan error ke konsol
+    throw error; // Melemparkan error untuk ditangani di tempat lain
+  });
+}
+
+//route-actions
+
+const getRouteActions = ()=>{
+  return axios.get('route-actions')
+}
+
+
+//country
+const getCountry =()=>{
+  return axios.get('country')
+}
+// province
+
+const getProv =()=>{
+  return axios.get('provinces')
+}
+// city
+const getCity =()=>{
+  return axios.get('city')
+}
 export default  {
+    getProv,
+    getCity,
     delCat,
     getallCat,
     getallSkillType,
@@ -58,5 +106,9 @@ export default  {
     createCat,
     createSkillType,
     delSkillType,
-    updateSkillType
+    updateSkillType,
+    getModule,
+    getAddressType,
+    getRouteActions,
+    getCountry
 }

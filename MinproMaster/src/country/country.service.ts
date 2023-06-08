@@ -14,8 +14,14 @@ export class CountryService {
     }
   }
 
-  findAll() {
-    return `This action returns all country`;
+  async findAll() {
+    try {
+      const result = await country.findAll()
+      return result
+    } catch (error) {
+      return error.message
+    }
+
   }
 
   findOne(id: number) {

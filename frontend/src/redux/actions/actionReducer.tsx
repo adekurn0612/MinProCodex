@@ -134,3 +134,84 @@ export const resSkillTemplete=(payload : any)=>{
         payload
     }
 }
+
+export const reqGetModule=()=>{
+    return{
+        type : ActionTypes.GET_MODULE,
+    }
+}
+
+export const resGetModule=(payload : any)=>{
+    return{
+        type : ActionTypes.GET_MODULE_RESPONSE,
+        payload
+    }
+}
+
+export const reqGetAdressType=()=>{
+    return{
+        type : ActionTypes.GET_ADDRESSTYPE,
+    }
+}
+
+export const resGetAddressType=(payload : any)=>{
+    return{
+        type : ActionTypes.GET_ADDRESSTYPE_RESPONSE,
+        payload
+    }
+}
+
+export const reqGetRouteAction=()=>{
+    return{
+        type : ActionTypes.GET_ROUTE_ACTIONS,
+    }
+}
+
+export const resGetRouteActions=(payload : any)=>{
+    return{
+        type : ActionTypes.GET_ROUTE_ACTIONS_RESPONSE,
+        payload
+    }
+}
+
+//country
+export const reqGetCountry=()=>{
+    return{
+        type : ActionTypes.GET_COUNTRY,
+    }
+}
+
+export const resGetCountry=(payload : any)=>{
+    return{
+        type : ActionTypes.GET_COUNTRY_RESPONSE,
+        payload
+    }
+}
+
+///PROVINCE
+export const reqGetProv=()=>{
+    return{
+        type : ActionTypes.GET_PROV,
+    }
+}
+
+export const resGetProv=(payload : any)=>{
+    return{
+        type : ActionTypes.GET_PROV_RESPONSE,
+        payload
+    }
+}
+
+//CITY
+export const reqGetCity=()=>{
+    return{
+        type : ActionTypes.GET_CITY,
+    }
+}
+
+export const resGetCity=(payload : any)=>{
+    return{
+        type : ActionTypes.GET_CITY_RESPONSE,
+        payload
+    }
+}

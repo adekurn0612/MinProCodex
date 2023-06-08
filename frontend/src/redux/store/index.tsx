@@ -5,6 +5,12 @@ import watchAll from "../saga";
 import CatReduce from "../reducer/categoryReduce";
 import SkillTempeleteReduce from "../reducer/skillTempleteReduce";
 import SkillTypeReduce from "../reducer/skilltypeReduce";
+import ModulesReduce from "../reducer/modulesReduce";
+import AddressTypeReduce from "../reducer/addressTypeReduce";
+import routeActionsReduce from "../reducer/routeActionsReducer";
+import CountryReduce from "../reducer/countryReducer";
+import ProvReduce from "../reducer/provReducer";
+import CityReduce from "../reducer/cityReducer";
 
 const logger = createLogger()
 const saga = createSagaMiddleware()
@@ -12,7 +18,14 @@ const saga = createSagaMiddleware()
 const reducer = combineReducers({
     catReducer : CatReduce,
     skillTempeleteReducer : SkillTempeleteReduce,
-    skillTypeReducer : SkillTypeReduce
+    skillTypeReducer : SkillTypeReduce,
+    modulesReducer : ModulesReduce,
+    addressTypeReducer : AddressTypeReduce,
+    routeActionsReducer : routeActionsReduce,
+    countryReducer : CountryReduce,
+    provReducer : ProvReduce,
+    cityReducer : CityReduce
+
 
 })
 

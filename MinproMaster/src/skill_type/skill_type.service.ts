@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateSkillTypeDto } from './dto/create-skill_type.dto';
 import { UpdateSkillTypeDto } from './dto/update-skill_type.dto';
 import { skill_type } from 'models';
-import { where } from 'sequelize';
 import { Sequelize } from 'sequelize-typescript';
 
 @Injectable()

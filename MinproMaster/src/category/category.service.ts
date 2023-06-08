@@ -11,6 +11,7 @@ export class CategoryService {
   
     async create(data: CreateCategoryDto) {
       try {
+        console.log(data)
         const createCategoryDtoJson = JSON.stringify(data);
         const result = await this.sequelize.query(`CALL master.insertcategory('${createCategoryDtoJson}');`);
         return result;

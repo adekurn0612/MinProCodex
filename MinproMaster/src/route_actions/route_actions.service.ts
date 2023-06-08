@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateRouteActionDto } from './dto/create-route_action.dto';
 import { UpdateRouteActionDto } from './dto/update-route_action.dto';
+import { route_actions } from 'models';
 
 @Injectable()
 export class RouteActionsService {
@@ -8,8 +9,13 @@ export class RouteActionsService {
     return 'This action adds a new routeAction';
   }
 
-  findAll() {
-    return `This action returns all routeActions`;
+  async findAll() {
+    try {
+      const result =await route_actions.findAll()
+      return result;
+    } catch (error) {
+      
+    }
   }
 
   findOne(id: number) {

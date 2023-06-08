@@ -14,8 +14,13 @@ export class ProvincesService {
     }
   }
 
-  findAll() {
-    return `This action returns all provinces`;
+  async findAll() {
+    try {
+      const result = await province.findAll()
+      return result    
+    } catch (error) {
+      return error.message
+    }
   }
 
   findOne(id: number) {
