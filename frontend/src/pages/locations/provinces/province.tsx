@@ -4,6 +4,7 @@ import { GrAddCircle } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
 
 const Province = (props :any) => {
+  // console.log('prov' , props.prov)
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -30,7 +31,7 @@ const Province = (props :any) => {
                 </tr>
               </thead>
               <tbody>
-                {props.prov.map((prov : any, index : any) => (
+                {props.prov?.map((prov : any, index : any) => (
                   <tr
                     key={index}
                     className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600"}

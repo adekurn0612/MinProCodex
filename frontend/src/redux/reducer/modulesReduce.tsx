@@ -14,6 +14,12 @@ export default function ModulesReduce(state = initialState, action :any) {
         switch (type) {
             case ActionType.GET_MODULE_RESPONSE:
             return {state , modules:payload , refresh:true};
+            case ActionType.CREATE_MODULE_RESPONSE:
+            return {state  , refresh:true};
+            case ActionType.DEL_MODULE_RESPONSE:
+            return {state  , refresh:true};
+            case ActionType.UPDATE_MODULE_RESPONSE:
+            return {state  , refresh:true};
             default:
                 return state;
             }

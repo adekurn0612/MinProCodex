@@ -2,11 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { CreateAddressTypeDto } from './dto/create-address_type.dto';
 import { UpdateAddressTypeDto } from './dto/update-address_type.dto';
 import { address_type } from 'models';
+import { Sequelize } from 'sequelize-typescript';
 
 @Injectable()
 export class AddressTypeService {
-  create(createAddressTypeDto: CreateAddressTypeDto) {
-    return 'This action adds a new addressType';
+  constructor(
+    private sequelize : Sequelize
+  ){}
+  async create(createAddressTypeDto: CreateAddressTypeDto) {
+    try {
+      const result = await address_type.create(createAddressTypeDto);
+      console.log(createAddressTypeDto)
+      return result
+    } catch (error) {
+      return error.message
+    }
   }
 
   async findAll() {
@@ -18,15 +28,33 @@ export class AddressTypeService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} addressType`;
-  }
+  // findOne(id: number) {
+  //   return `This action returns a #${id} addressType`;
+  // }
 
-  update(id: number, updateAddressTypeDto: UpdateAddressTypeDto) {
-    return `This action updates a #${id} addressType`;
+  async update(adty_id: number, updateAddressTypeDto: UpdateAddressTypeDto) {
+    try {
+      const result = await address_type.update(
+        updateAddressTypeDto,
+        {
+          where: {
+            adty_id: adty_id
+          },
+          returning: true
+        }
+      );
+      return result;
+    } catch (error) {
+      return error.message;
+    }
   }
+  
 
-  remove(id: number) {
-    return `This action removes a #${id} addressType`;
+ async remove(adty_id: number) {
+    try {
+      const result = await address_type.destroy({where: { adty_id: adty_id }});
+    } catch (error) {
+      return error.message
+    };
   }
 }

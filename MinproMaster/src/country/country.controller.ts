@@ -22,13 +22,13 @@ export class CountryController {
     return this.countryService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCountryDto: UpdateCountryDto) {
-    return this.countryService.update(+id, updateCountryDto);
+  @Patch(':old_country_code')
+  update(@Param('old_country_code') old_country_code: string, @Body() updateCountryDto: UpdateCountryDto) {
+    return this.countryService.update(old_country_code, updateCountryDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.countryService.remove(+id);
+  @Delete(':country_code')
+  remove(@Param('country_code') country_code: string) {
+    return this.countryService.remove(country_code);
   }
 }

@@ -22,13 +22,13 @@ export class ModulesController {
     return this.modulesService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateModuleDto: UpdateModuleDto) {
-    return this.modulesService.update(+id, updateModuleDto);
+  @Patch(':old_module_name')
+  update(@Param('old_module_name') old_module_name: string, @Body() updateModuleDto: UpdateModuleDto) {
+    return this.modulesService.update(old_module_name, updateModuleDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.modulesService.remove(+id);
+  @Delete(':module_name')
+  remove(@Param('module_name') module_name: string) {
+    return this.modulesService.remove(module_name);
   }
 }

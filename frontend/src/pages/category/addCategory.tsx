@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Transition, Dialog } from '@headlessui/react';
 import { Listbox } from '@headlessui/react';
-import { HiChevronUpDown, HiCheck } from 'react-icons/hi2';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { reqCreateCat} from '@/redux/actions/actionReducer';

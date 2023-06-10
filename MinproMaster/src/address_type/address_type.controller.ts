@@ -17,18 +17,18 @@ export class AddressTypeController {
     return this.addressTypeService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.addressTypeService.findOne(+id);
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.addressTypeService.findOne(+id);
+  // }
+
+  @Patch(':adty_id')
+  update(@Param('adty_id') adty_id: string, @Body() updateAddressTypeDto: UpdateAddressTypeDto) {
+    return this.addressTypeService.update(+adty_id, updateAddressTypeDto);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAddressTypeDto: UpdateAddressTypeDto) {
-    return this.addressTypeService.update(+id, updateAddressTypeDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.addressTypeService.remove(+id);
+  @Delete(':adty_id')
+  remove(@Param('adty_id') adty_id: string) {
+    return this.addressTypeService.remove(+adty_id);
   }
 }

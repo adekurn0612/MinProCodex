@@ -13,6 +13,12 @@ console.log('object', payload)
 switch(type){
     case ActionTypes.GET_COUNTRY_RESPONSE:
         return{state, country:payload ,  refresh:true};
+    case ActionTypes.DEL_COUNTRY_RESPONSE:
+        return{state,  refresh:false};
+    case ActionTypes.CREATE_COUNTRY_RESPONSE:
+        return{state,  refresh:false};
+        case ActionTypes.UPDATE_COUNTRY_RESPONSE:
+            return{state,  refresh:false};
         default :
         return state
 }

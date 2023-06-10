@@ -135,6 +135,7 @@ export const resSkillTemplete=(payload : any)=>{
     }
 }
 
+//module
 export const reqGetModule=()=>{
     return{
         type : ActionTypes.GET_MODULE,
@@ -148,6 +149,49 @@ export const resGetModule=(payload : any)=>{
     }
 }
 
+export const reqCreateModule=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_MODULE,
+        payload
+    }
+}
+
+export const resCreateModule=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_MODULE_RESPONSE,
+        payload
+    }
+}
+
+export const reqUpdateModule=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_MODULE,
+        payload
+    }
+}
+
+export const resUpdateModule=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_MODULE_RESPONSE,
+        payload
+    }
+}
+export const reqDelModule=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_MODULE,
+        payload
+    }
+}
+
+export const resDelModule=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_MODULE_RESPONSE,
+        payload
+    }
+}
+
+
+//ADDRESS-TYPE
 export const reqGetAdressType=()=>{
     return{
         type : ActionTypes.GET_ADDRESSTYPE,
@@ -161,6 +205,49 @@ export const resGetAddressType=(payload : any)=>{
     }
 }
 
+export const reqCreateAdressType=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_ADDTYPE,
+        payload
+    }
+}
+
+export const resCreateAddressType=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_ADDTYPE_RESPONSE,
+        payload
+    }
+}
+
+export const reqUpdateAdressType=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_ADDTYPE,
+        payload
+    }
+}
+
+export const resUpdateAddressType=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_ADDTYPE_RESPONSE,
+        payload
+    }
+}
+
+export const reqDelAdressType=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_ADDTYPE,
+        payload
+    }
+}
+
+export const resDelAddressType=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_ADDTYPE_RESPONSE,
+        payload
+    }
+}
+
+//route -actions
 export const reqGetRouteAction=()=>{
     return{
         type : ActionTypes.GET_ROUTE_ACTIONS,
@@ -181,9 +268,48 @@ export const reqGetCountry=()=>{
     }
 }
 
+
 export const resGetCountry=(payload : any)=>{
     return{
         type : ActionTypes.GET_COUNTRY_RESPONSE,
+        payload
+    }
+}
+
+export const reqDelCountry=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_COUNTRY,
+        payload
+    }
+}
+export const resDelCountry =(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_COUNTRY_RESPONSE,
+        payload
+    }
+}
+export const reqCreateCountry=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_COUNTRY,
+        payload
+    }
+}
+export const resCreateCountry =(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_COUNTRY_RESPONSE,
+        payload
+    }
+}
+
+export const reqUpdateCountry=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_COUNTRY,
+        payload
+    }
+}
+export const resUpdateCountry =(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_COUNTRY_RESPONSE,
         payload
     }
 }

@@ -3,10 +3,52 @@ import { BsPencil } from 'react-icons/bs'
 import { GrAddCircle } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
 import AddAddressType from './addAddressType'
+import EditAddressType from './EditAddressType'
+import Swal from 'sweetalert2'
+import { reqDelAdressType } from '@/redux/actions/actionReducer'
+import { useDispatch } from 'react-redux'
 
 const AddressType = (props : any) => {
   const[isAdd , setIsAdd] = useState(false);
-  const[isEdit , setIsEdit] = useState(false)
+  const[isEdit , setIsEdit] = useState(false);
+  const[dataAddType , setDataAddType]=useState('');
+  const dispatch = useDispatch();
+  const handleDelete = async (data : string) => {
+    console.log('1',{data})
+    try {
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      });
+  
+      if (result.isConfirmed) {
+        dispatch(reqDelAdressType(data))
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        );
+      } else {
+        Swal.fire(
+          'Cancelled',
+          'Your file is safe.',
+          'info'
+        );
+      }
+    } catch (error) {
+      console.error('Error deleting data:', error);
+      Swal.fire(
+        'Error!',
+        'Failed to delete data. Please try again.',
+        'error'
+      );
+    }
+  }
   return (
     <>
     <div className="flex flex-col">
@@ -43,14 +85,14 @@ const AddressType = (props : any) => {
                     <BsPencil className="mr-1" />
                           <span className="mr-4 font-bold">
                             <button onClick={() => {
-                            // setDataCat(stype );
+                            setDataAddType(addressType );
                             setIsEdit(true);
                           }}>Edit</button> 
                             </span>
                           <TiDeleteOutline className="mr-1" />
                           <span className="font-bold">
                           <button
-                          //  onClick={()=>handleDelete(stype)}
+                           onClick={()=>handleDelete(addressType.adty_id)}
                           >Delete</button> 
                             </span>
                     </div>
@@ -65,6 +107,9 @@ const AddressType = (props : any) => {
     </div>
     {isAdd?(
       <AddAddressType show={isAdd} closeModal={()=>setIsAdd(false)} />
+    ):('')}
+    {isEdit?(
+      <EditAddressType show={isEdit} closeModal={()=>setIsEdit(false)} data={dataAddType} />
     ):('')}
     </>
   )

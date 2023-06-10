@@ -62,6 +62,20 @@ const getModule = ()=>{
   });
 }
 
+const createModule = (data : any)=>{
+  return axios.post('modules', data)
+}
+
+const delModule= (data :any )=>{
+  console.log('del',data)
+  return axios.delete(`modules/${data}`)
+}
+
+const updateModule = (data : any)=>{
+  console.log('up',data)
+  return axios.patch(`modules/${data.old_module_name}` , data)
+}
+
 // address type
 const getAddressType = ()=>{
   return axios.get('address-type')
@@ -75,6 +89,20 @@ const getAddressType = ()=>{
   });
 }
 
+const createAddType = (data : any)=>{
+  
+  return axios.post('address-type', data)
+}
+
+const updateAddressType =(data : any)=>{
+  console.log('sampe sini ', data)
+  return axios.patch(`address-type/${data.adty_id}` , data)
+}
+
+const deleteAddressType =(id : any)=>{
+  console.log('sampe sini ', id)
+  return axios.delete(`address-type/${id}`)
+}
 //route-actions
 
 const getRouteActions = ()=>{
@@ -86,6 +114,16 @@ const getRouteActions = ()=>{
 const getCountry =()=>{
   return axios.get('country')
 }
+const createCountry=(data : any)=>{
+  return axios.post('country' , data)
+}
+const DelCountry =(data: any)=>{
+  return axios.delete(`country/${data}`)
+}
+const updateCountry =(data: any)=>{
+  console.log('object', data)
+  return axios.patch(`country/${data.old_country_code}`, data)
+}
 // province
 
 const getProv =()=>{
@@ -95,6 +133,8 @@ const getProv =()=>{
 const getCity =()=>{
   return axios.get('city')
 }
+
+
 export default  {
     getProv,
     getCity,
@@ -110,5 +150,14 @@ export default  {
     getModule,
     getAddressType,
     getRouteActions,
-    getCountry
+    getCountry,
+    createAddType,
+    updateAddressType,
+    deleteAddressType,
+    DelCountry,
+    createCountry,
+    updateCountry,
+    createModule,
+    delModule,
+    updateModule
 }

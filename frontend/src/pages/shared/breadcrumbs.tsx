@@ -9,7 +9,7 @@ export default function BreadcrumbsSlice() {
   const parts = pathname.split('/').filter(Boolean);
 
   return (
-    <div className="text-gray-900 -ml-4">
+    <div className="text-gray-900  bg-teal-200">
       <Breadcrumbs>
         <Link
           href={'/'}

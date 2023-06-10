@@ -4,10 +4,10 @@ import { Listbox } from '@headlessui/react';
 import { HiChevronUpDown, HiCheck } from 'react-icons/hi2';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { reqCreateCat, reqCreateSkillType} from '@/redux/actions/actionReducer';
+import { reqCreateAdressType, reqCreateCat, reqCreateSkillType} from '@/redux/actions/actionReducer';
+import Index from '@/pages/locations';
 
 const AddAddressType = (props: any) => {
-  const [selected, setSelected] = useState('');
 
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ const AddAddressType = (props: any) => {
 
   const handleRegistration = async (data: FormValues) => {
     console.log('ini',data);
-    // dispatch(reqCreateSkillType(data));
+    dispatch(reqCreateAdressType(data));
     props.closeModal()
   };
   return (

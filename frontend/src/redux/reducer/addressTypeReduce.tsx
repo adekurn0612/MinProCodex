@@ -14,6 +14,12 @@ export default function AddressTypeReduce(state = initialState, action :any) {
         switch (type) {
             case ActionType.GET_ADDRESSTYPE_RESPONSE:
             return {state , addressType:payload ,status:payload.status, refresh:true};
+            case ActionType.CREATE_ADDTYPE_RESPONSE:
+            return {state , refresh:false}; 
+            case ActionType.DEL_ADDTYPE_RESPONSE:
+            return {state , refresh:false}; 
+            case ActionType.UPDATE_ADDTYPE_RESPONSE:
+            return {state , refresh:false};  
             default:
                 return state;
             }

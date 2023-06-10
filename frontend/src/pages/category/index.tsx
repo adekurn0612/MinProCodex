@@ -72,8 +72,8 @@ const handleDelete = async (id : number) => {
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
             <div className="overflow-hidden">
-              <table className="min-w-full text-left text-sm font-light">
-                <thead className="border-b bg-white-100 font-medium dark:border-neutral-500 dark:bg-neutral-600">
+              <table className="min-w-full text-left text-sm font-light border">
+                <thead className="border-b border-b-gray-900 font-medium dark:border-neutral-500 dark:bg-neutral-600 bg-gray-500">
                   <tr>
                     <th scope="col" className="px-6 py-4">
                       Category Name
@@ -103,7 +103,7 @@ const handleDelete = async (id : number) => {
                       key={cat.cat_id}
                       className={
                         index % 2 === 0
-                          ? 'bg-neutral-100 dark:bg-neutral-700'
+                          ? 'bg-gray-400 dark:bg-neutral-700'
                           : 'bg-white dark:bg-neutral-600'
                       }
                     >
@@ -111,7 +111,7 @@ const handleDelete = async (id : number) => {
                       <td className="whitespace-nowrap px-6 py-4">{cat.parent_name}</td>
                       <td className="whitespace-nowrap px-6 py-4 text-right">
                         <div className="flex items-center justify-end">
-                          <BsPencil className="mr-1" />
+                          <BsPencil className="mr-1 " />
                           <span className="mr-4 font-bold">
                             <button onClick={() => {
                             setDataCat(cat );
