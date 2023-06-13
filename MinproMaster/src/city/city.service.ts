@@ -31,11 +31,21 @@ export class CityService {
     return `This action returns a #${id} city`;
   }
 
-  update(id: number, updateCityDto: UpdateCityDto) {
-    return `This action updates a #${id} city`;
+  async update(id: number, updateCityDto: UpdateCityDto) {
+    try {
+      const result = await city.update(updateCityDto , {where : {city_id : id}});
+      return result
+    } catch (error) {
+      return error.message
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} city`;
+  async remove(city_id: number) {
+    try {
+      const result = await city.destroy({where:{city_id:city_id}})
+      return result
+    } catch (error) {
+      return error.message
+    }
   }
 }

@@ -129,13 +129,44 @@ const updateCountry =(data: any)=>{
 const getProv =()=>{
   return axios.get('provinces')
 }
+
+const delProv = (data : any)=>{
+  return axios.delete(`provinces/${data}`)
+}
+
+const createProv =(data : any)=>{
+  return axios.post('provinces' , data)
+}
+
+const updateProv =(data : any)=>{
+  console.log('update' , data)
+  return axios.patch(`provinces/${data.prov_id}` , data)
+}
 // city
 const getCity =()=>{
   return axios.get('city')
 }
 
+const delCity = (data : any)=>{
+  console.log(data)
+  return axios.delete(`city/${data}`)
+}
+
+const createCity=(data :any)=>{
+  return axios.post('city' , data)
+}
+
+const updateCity=(data :any)=>{
+  return axios.patch(`city/${data.city_id}` , data)
+}
 
 export default  {
+  updateProv,
+  updateCity,
+  createCity,
+  createProv,
+  delCity,
+  delProv,
     getProv,
     getCity,
     delCat,

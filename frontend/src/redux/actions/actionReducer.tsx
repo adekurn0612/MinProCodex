@@ -328,6 +328,51 @@ export const resGetProv=(payload : any)=>{
     }
 }
 
+export const reqDelProv=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_PROV,
+        payload
+    }
+}
+
+export const resDelProv=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_PROV_RESPONSE,
+        payload
+        
+    }
+}
+
+export const reqCreateProv=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_PROV,
+        payload
+    }
+}
+
+export const resCreateProv=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_PROV_RESPONSE,
+        payload
+        
+    }
+}
+
+export const reqUpdateProv=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_PROV,
+        payload
+    }
+}
+
+export const resUpdateProv=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_PROV_RESPONSE,
+        payload
+        
+    }
+}
+
 //CITY
 export const reqGetCity=()=>{
     return{
@@ -339,5 +384,52 @@ export const resGetCity=(payload : any)=>{
     return{
         type : ActionTypes.GET_CITY_RESPONSE,
         payload
+    }
+}
+export const reqDelCity=(payload : any)=>{
+    console.log(payload)
+    return{
+        type : ActionTypes.DEL_CITY,
+        payload
+    }
+}
+
+export const resDelCity=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_CITY_RESPONSE,
+        payload
+        
+    }
+}
+
+export const reqCreateCity=(payload : any)=>{
+    console.log(payload)
+    return{
+        type : ActionTypes.CREATE_CITY,
+        payload
+    }
+}
+
+export const resCreateCity=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_CITY_RESPONSE,
+        payload
+        
+    }
+}
+
+export const reqUpdateCity=(payload : any)=>{
+    console.log(payload)
+    return{
+        type : ActionTypes.UPDATE_CITY,
+        payload
+    }
+}
+
+export const resUpdateCity=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_CITY_RESPONSE,
+        payload
+        
     }
 }

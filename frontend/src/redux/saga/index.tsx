@@ -7,8 +7,8 @@ import { handleCreateModule, handleDelModule, handleGetModule, handleUpdateModul
 import { handleCreateAddressType, handleDelAddressType, handleGetAddressType, handleUpdateAddressType } from './addressTypeSaga'
 import { handleGetRouteActions } from './routeActionsReduce'
 import { handleCreateCountry, handleDelCountry, handleGetCountry, handleUpdateCountry } from './countrySaga'
-import { handleGetProv } from './provSaga'
-import { handleGetCity } from './citySaga'
+import { handleCreateProv, handleDelProv, handleGetProv, handleUpdateProv } from './provSaga'
+import { handleCreateCity, handleDelCity, handleGetCity, handleUpdateCity } from './citySaga'
 
 function* watchAll(){
     yield all([
@@ -42,7 +42,14 @@ function* watchAll(){
         takeEvery(ActionTypes.UPDATE_COUNTRY , handleUpdateCountry),
 
         takeEvery(ActionTypes.GET_PROV , handleGetProv),
+        takeEvery(ActionTypes.DEL_PROV , handleDelProv),
+        takeEvery(ActionTypes.CREATE_PROV , handleCreateProv),
+        takeEvery(ActionTypes.UPDATE_PROV , handleUpdateProv),
+
         takeEvery(ActionTypes.GET_CITY , handleGetCity),
+        takeEvery(ActionTypes.DEL_CITY , handleDelCity),
+        takeEvery(ActionTypes.CREATE_CITY , handleCreateCity),
+        takeEvery(ActionTypes.UPDATE_CITY , handleUpdateCity),
         
     ])
 }

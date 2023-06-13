@@ -1,17 +1,18 @@
 import React, { Fragment, useState } from 'react';
 import { Transition, Dialog } from '@headlessui/react';
-import { reqUpdateCat } from '@/redux/actions/actionReducer';
+import { Listbox } from '@headlessui/react';
+import { HiChevronUpDown, HiCheck } from 'react-icons/hi2';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { reqUpdateAdressType, reqUpdateSkillType } from '@/redux/actions/actionReducer';
 
-const EditCategory = (props: any) => {
+const EditAddressType = (props: any) => {
+
   const dispatch = useDispatch();
-console.log('asw',props.list[0])
-// console.log('cat',props.data)
+
   type FormValues = {
-    cate_id: number;
-    cate_name: string;
-    cate_cate_id: number;
+    adty_name: string;
+    adty_id : number;
   };
 
   const {
@@ -22,13 +23,9 @@ console.log('asw',props.list[0])
 
   const handleRegistration = async (data: FormValues) => {
     console.log('ini',data);
-    dispatch(reqUpdateCat(data));
+    dispatch(reqUpdateAdressType(data));
     props.closeModal()
   };
-
-  const [selected, setSelected] = useState('');
-
-
   return (
     <div>
       <Transition appear show={props.show} as={Fragment}>
@@ -64,49 +61,29 @@ console.log('asw',props.list[0])
                   as="h3"
                   className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
                 >
-                  --Tambahkan Category--
+                  --Tambahkan Skill Type--
                 </Dialog.Title>
-                <form className="space-y-6" onSubmit={handleSubmit(handleRegistration)}>
-                <div className="w-2/3">
-                      <input
-                        type="hidden"
-                        defaultValue={props.data.cate_id}
-                        {...register('cate_id')}
-                      />
-                    </div>
+                <form className="space-y-6"  onSubmit={handleSubmit(handleRegistration)}>
                   <div className="flex items-center">
+                  <input
+                        type="hidden"
+                        defaultValue={props.data.adty_id}
+                        {...register('adty_id')}
+                      />
                     <label
                       className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
                       htmlFor="inline-full-name"
                     >
-                      Category Name
+                      Skill Type Name
                     </label>
                     <div className="w-2/3">
                       <input
                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"
-                        defaultValue={props.data.cate_name}
-                        {...register('cate_name')}
+                        defaultValue={props.data.adty_name}
+                        {...register('adty_name')}
                       />
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <label
-                      className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
-                      htmlFor="inline-password"
-                    >
-                      Parent Category
-                    </label>
-                    <div className="w-2/3">
-                    <select {...register('cate_cate_id')} className='rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900'>
-                    <option value="">-- Pilih --</option> {/* Empty string to represent null */}
-                    {props.list[0]?.map((ct: any) => (
-                      <option key={ct.cate_id} value={ct.cate_id} >
-                        {ct.cate_name}
-                      </option>
-                    ))}
-                  </select>
                     </div>
                   </div>
                   <div className="flex justify-end">
@@ -121,7 +98,7 @@ console.log('asw',props.list[0])
                       className="shadow bg-teal-600 hover:bg-teal-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                       type="submit"
                     >
-                      Simpan
+                      Save
                     </button>
                   </div>
                 </form>
@@ -134,4 +111,4 @@ console.log('asw',props.list[0])
   );
 };
 
-export default EditCategory;
+export default EditAddressType;

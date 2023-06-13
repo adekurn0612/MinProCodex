@@ -1,6 +1,6 @@
 import apiMethod from "@/pages/api/apiMethod"
 import { call, put } from "redux-saga/effects"
-import { resGetProv } from "../actions/actionReducer"
+import { resCreateProv, resDelProv, resGetProv, resUpdateProv } from "../actions/actionReducer"
 
 function* handleGetProv():any{
     try {
@@ -11,6 +11,34 @@ function* handleGetProv():any{
     }
 }
 
+function* handleDelProv(action : any):any{
+    try {
+        const result = yield call(apiMethod.delProv , action.payload)
+        yield put(resDelProv(result))
+    } catch (error) {
+        yield put(resDelProv({message:error, status:400}))
+    }
+}
+function* handleCreateProv(action : any):any{
+    try {
+        const result = yield call(apiMethod.createProv , action.payload)
+        yield put(resCreateProv(result))
+    } catch (error) {
+        yield put(resCreateProv({message:error, status:400}))
+    }
+}
+function* handleUpdateProv(action : any):any{
+    try {
+        const result = yield call(apiMethod.updateProv , action.payload)
+        yield put(resUpdateProv(result))
+    } catch (error) {
+        yield put(resUpdateProv({message:error, status:400}))
+    }
+}
+
 export {
-    handleGetProv
+    handleUpdateProv,
+    handleCreateProv,
+    handleGetProv,
+    handleDelProv
 }

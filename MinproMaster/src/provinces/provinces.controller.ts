@@ -27,8 +27,8 @@ export class ProvincesController {
     return this.provincesService.update(+id, updateProvinceDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.provincesService.remove(+id);
+  @Delete(':prov_id')
+  remove(@Param('prov_id') prov_id: string) {
+    return this.provincesService.remove(+prov_id);
   }
 }

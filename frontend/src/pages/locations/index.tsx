@@ -32,10 +32,10 @@ console.log('object' , prov.data )
               <Country country={country}/>
             </div>
             <div className="rounded bg-blue h-auto shadow-sm py-2">
-              <Province prov={prov.data}/>
+              <Province prov={prov.data} country={country}/>
             </div>
             <div className="rounded bg-blue h-auto shadow-sm py-2">
-              <City city={city.data}/>
+              <City city={city.data} prov={prov.data}/>
             </div>
     </div>
     </>
