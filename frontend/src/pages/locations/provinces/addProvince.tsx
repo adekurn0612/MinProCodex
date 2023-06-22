@@ -61,9 +61,9 @@ const AddProv = (props: any) => {
             <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
               <Dialog.Title
                 as="h3"
-                className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
+                className="pb-6 pt-3 text-center text-lg leading-6 text-gray-700 font-bold"
               >
-                --Tambahkan Province--
+                Tambahkan Province
               </Dialog.Title>
               <form className="space-y-6" onSubmit={handleSubmit(handleRegistration)}>
                 <div className="flex items-center">
@@ -105,12 +105,12 @@ const AddProv = (props: any) => {
                     className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
                     htmlFor="inline-password"
                   >
-                    Province
+                    Country
                   </label>
                   <div className="w-2/3">
                     <select
                       {...register('prov_country_code')}
-                      className="rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
+                      className="text-center rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
                     >
                       <option value="">-- Pilih --</option>
                       {props.dataCode?.map((ct: any) => (

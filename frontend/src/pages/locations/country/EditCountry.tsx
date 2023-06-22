@@ -62,9 +62,9 @@ const EditCountry = (props: any) => {
               <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
                 <Dialog.Title
                   as="h3"
-                  className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
+                  className="pb-6 pt-3 text-center text-lg leading-6 text-gray-700 font-bold"
                 >
-                  --Tambahkan Country--
+                  Edit Country
                 </Dialog.Title>
                 <form className="space-y-6"  onSubmit={handleSubmit(handleRegistration)}>
                 <div className="flex items-center">
@@ -100,7 +100,7 @@ const EditCountry = (props: any) => {
                     )}
                 </div>
                 </div>
-                    <div className="flex justify-end">
+                    <div className="flex items-center">
                     <label
                       className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
                       htmlFor="inline-full-name"

@@ -59,7 +59,7 @@ const Province = (props :any) => {
           <div className="overflow-hidden">
           <div className='border font-bold text-lg'>Province</div>
             <table className="min-w-full text-left text-sm font-light">
-              <thead className="border-b bg-white-100 font-medium dark:border-neutral-500 dark:bg-neutral-600">
+              <thead className="border-b bg-white-100 font-medium dark:border-neutral-500 dark:bg-neutral-600 bg-gray-400">
                 <tr>
                   <th scope="col" className="px-6 py-4">
                     Province Name

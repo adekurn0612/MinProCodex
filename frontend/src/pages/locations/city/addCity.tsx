@@ -60,9 +60,9 @@ const AddCity = (props: any) => {
             <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
               <Dialog.Title
                 as="h3"
-                className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
+                className="pb-6 pt-3 text-center text-lg leading-6 text-gray-700 font-bold"
               >
-                --Tambahkan City--
+                Tambahkan City
               </Dialog.Title>
               <form className="space-y-6" onSubmit={handleSubmit(handleRegistration)}>
                 <div className="flex items-center">
@@ -77,7 +77,6 @@ const AddCity = (props: any) => {
                       className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                       id="inline-full-name"
                       type="text"
-                      placeholder='3 digit city code'
                       {...register('city_name')}
                     />
                   </div>
@@ -92,10 +91,10 @@ const AddCity = (props: any) => {
                   <div className="w-2/3">
                     <select
                       {...register('city_prov_id')}
-                      className="rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
+                      className="text-center rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
                     >
                       <option value="">-- Pilih --</option>
-                      {props.dataProv?.map((dt: any) => (
+                      {props.dataProv[0]?.map((dt: any) => (
                         <option key={dt.prov_id} value={dt.prov_id}>
                           {dt.prov_name}
                         </option>
@@ -115,7 +114,7 @@ const AddCity = (props: any) => {
                     className="shadow bg-teal-600 hover:bg-teal-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                     type="submit"
                   >
-                    Simpan
+                    Add
                   </button>
                 </div>
               </form>

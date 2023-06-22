@@ -5,7 +5,7 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class UpdateRouteActionDto extends PartialType(CreateRouteActionDto) {
     @IsNotEmpty()
     @IsString()
-    prov_name :string;
+    roac_name :string;
 
     roac_orderby : number;
 

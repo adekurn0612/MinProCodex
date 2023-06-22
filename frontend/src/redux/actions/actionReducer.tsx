@@ -347,6 +347,22 @@ export const resUpdateRouteActions=(payload : any)=>{
         payload
     }
 }
+
+export const reqUpdateDisplayRouteAction=(payload :any)=>{
+    console.log('ini',payload)
+    return{
+        type : ActionTypes.UPDATE_DISPLAY_ROUTE_ACTIONS,
+        payload
+    }
+}
+
+export const resUpdateDisplayRouteActions=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_DISPLAY_ROUTE_ACTIONS_RESPONSE,
+        payload
+    }
+}
+
 //country
 export const reqGetCountry=()=>{
     return{

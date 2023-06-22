@@ -60,39 +60,39 @@ const AddCountry = (props: any) => {
               <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
                 <Dialog.Title
                   as="h3"
-                  className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
+                  className="pb-6 pt-3 text-center text-lg leading-6 text-gray-700 font-bold"
                 >
-                  --Tambahkan Country--
+                  Tambahkan Country
                 </Dialog.Title>
                 <form className="space-y-6"  onSubmit={handleSubmit(handleRegistration)}>
                 <div className="flex items-center">
-  <label
-    className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
-    htmlFor="inline-full-name"
-  >
-    Code
-  </label>
-  <div className="w-2/3">
-    <input
-      className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-      id="inline-full-name"
-      type="text"
-      {...register('country_code', {
-        required: 'Code is required',
-        pattern: {
-          value: /^[A-Z]{3}$/,
-          message: 'Code must be 3 uppercase letters',
-        },
-      })}
-    />
-    {errors.country_code && (
-      <div className='w-3/4 text-xs text-red-500'>
-        {errors.country_code.message}
-      </div>
-    )}
-  </div>
-</div>
-                    <div className="flex justify-end">
+                <label
+                  className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
+                  htmlFor="inline-full-name"
+                >
+                  Code
+                </label>
+                <div className="w-2/3">
+                  <input
+                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="text"
+                    {...register('country_code', {
+                      required: 'Code is required',
+                      pattern: {
+                        value: /^[A-Z]{3}$/,
+                        message: 'Code must be 3 uppercase letters',
+                      },
+                    })}
+                  />
+                  {errors.country_code && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.country_code.message}
+                    </div>
+                  )}
+                </div>
+              </div>
+                    <div className="flex items-center">
                     <label
                       className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
                       htmlFor="inline-full-name"

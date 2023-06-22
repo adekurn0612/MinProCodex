@@ -59,9 +59,9 @@ const EditAddressType = (props: any) => {
               <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
                 <Dialog.Title
                   as="h3"
-                  className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
+                  className="pb-6 pt-3 text-center text-lg leading-6 text-gray-700 font-bold"
                 >
-                  --Tambahkan Skill Type--
+                  Edit Address Type
                 </Dialog.Title>
                 <form className="space-y-6"  onSubmit={handleSubmit(handleRegistration)}>
                   <div className="flex items-center">
@@ -98,7 +98,7 @@ const EditAddressType = (props: any) => {
                       className="shadow bg-teal-600 hover:bg-teal-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                       type="submit"
                     >
-                      Save
+                      Simpan
                     </button>
                   </div>
                 </form>

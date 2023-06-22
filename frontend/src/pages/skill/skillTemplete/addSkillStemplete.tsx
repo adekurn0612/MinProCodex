@@ -65,9 +65,9 @@ const AddST = (props: any) => {
               <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
                 <Dialog.Title
                   as="h3"
-                  className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
+                  className="pb-6 pt-3 text-center text-lg leading-6 text-gray-700 font-bold"
                 >
-                  --Tambahkan Module--
+                  Tambahkan Skill Tempelete
                 </Dialog.Title>
                 <form className="space-y-6"  onSubmit={handleSubmit(handleRegistration)}>
                   <div className="flex items-center">
@@ -96,7 +96,7 @@ const AddST = (props: any) => {
                     <div className="w-2/3">
                     <select
                       {...register('skty_name')}
-                      className="rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
+                      className="text-center rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
                     >
                       <option value="">-- Pilih --</option>
                       {props.dataType?.map((dt: any) => (
@@ -106,6 +106,8 @@ const AddST = (props: any) => {
                       ))}
                     </select>
                   </div>
+                  </div>
+                  <div className="flex items-center">
                     <label
                       className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
                       htmlFor="inline-full-name"
@@ -115,7 +117,7 @@ const AddST = (props: any) => {
                     <div className="w-2/3">
                     <select
                       {...register('skte_skte_id')}
-                      className="rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
+                      className="text-center rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
                     >
                       <option value="">-- Pilih --</option>
                       {props.dataParent[0].map((dp: any) => (

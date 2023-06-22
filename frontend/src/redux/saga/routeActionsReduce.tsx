@@ -1,6 +1,6 @@
 import apiMethod from "@/pages/api/apiMethod"
 import { call, put } from "redux-saga/effects"
-import { resCreateRouteActions, resDelRouteActions, resGetRouteActions, resUpdateRouteActions } from "../actions/actionReducer"
+import { resCreateRouteActions, resDelRouteActions, resGetRouteActions, resUpdateDisplayRouteActions, resUpdateRouteActions } from "../actions/actionReducer"
 
 function* handleGetRouteActions():any{
     try {
@@ -37,9 +37,19 @@ function* handleUpdateRouteActions(action : any):any{
         yield put(resUpdateRouteActions({message:error, status:400}))
     }
 }
+
+function* handleUpdateDisplayRouteActions(action : any):any{
+    try {
+        const result = yield call(apiMethod.updateRA , action.payload)
+        yield put(resUpdateDisplayRouteActions(result.data))
+    } catch (error) {
+        yield put(resUpdateDisplayRouteActions({message:error, status:400}))
+    }
+}
 export {
     handleUpdateRouteActions,
     handleGetRouteActions,
     handleDelRouteActions,
-    handleCreateRouteActions
+    handleCreateRouteActions,
+    handleUpdateDisplayRouteActions
 }

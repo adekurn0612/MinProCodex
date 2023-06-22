@@ -73,7 +73,7 @@ const handleDelete = async (id : number) => {
           <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
             <div className="overflow-hidden">
               <table className="min-w-full text-left text-sm font-light border">
-                <thead className="border-b border-b-gray-900 font-medium dark:border-neutral-500 dark:bg-neutral-600 bg-gray-500">
+                <thead className="border-b border-b-gray-900 font-medium dark:border-neutral-500 dark:bg-neutral-600 bg-gray-400">
                   <tr>
                     <th scope="col" className="px-6 py-4">
                       Category Name
@@ -101,11 +101,7 @@ const handleDelete = async (id : number) => {
                   {category && category[0]?.map((cat :any, index :any) => (
                     <tr
                       key={cat.cat_id}
-                      className={
-                        index % 2 === 0
-                          ? 'bg-gray-400 dark:bg-neutral-700'
-                          : 'bg-white dark:bg-neutral-600'
-                      }
+                      className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600"}
                     >
                       <td className="whitespace-nowrap px-6 py-4 font-medium">{cat.cate_name}</td>
                       <td className="whitespace-nowrap px-6 py-4">{cat.parent_name}</td>

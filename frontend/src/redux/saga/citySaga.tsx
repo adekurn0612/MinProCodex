@@ -5,7 +5,7 @@ import { resCreateCity, resDelCity, resGetCity, resUpdateCity } from "../actions
 function* handleGetCity():any{
     try {
         const result = yield call(apiMethod.getCity)
-        yield put(resGetCity(result))
+        yield put(resGetCity(result.data))
     } catch (error) {
         yield put(resGetCity({message:error, status:400}))
     }

@@ -77,9 +77,9 @@ const EditRA = (props: any) => {
               <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
                 <Dialog.Title
                   as="h3"
-                  className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
+                  className="pb-6 pt-3 text-center text-lg leading-6 text-gray-700 font-bold"
                 >
-                  --Tambahkan Module--
+                  Edit Route Actions
                 </Dialog.Title>
                 <form className="space-y-6"  onSubmit={handleSubmit(handleRegistration)}>
                 <input
@@ -116,30 +116,15 @@ const EditRA = (props: any) => {
                     <div className="w-2/3">
                     <select
                       {...register('roac_module_name')}
-                      className="rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
+                      className=" text-gray-700 bg-gray-200  rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full"
                     >
-                      <option value="">-- Pilih --</option>
                       {props.dataModule?.map((dt: any) => (
-                        <option key={dt.module_name} value={dt.module_name}>
+                        <option key={dt.module_name} value={dt.module_name}
+                        defaultValue={dt.module_name}>
                           {dt.module_name}
                         </option>
                       ))}
                     </select>
-                    </div>
-                    <label
-                      className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
-                      htmlFor="inline-full-name"
-                    >
-                      Order By
-                    </label>
-                    <div className="w-2/3">
-                      <input
-                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        id="inline-full-name"
-                        type="number"
-                        defaultValue={props.data.roac_orderby}
-                        {...register('roac_orderby')}
-                      />
                     </div>
                   </div>
                   <div className="flex items-center">
@@ -158,6 +143,21 @@ const EditRA = (props: any) => {
                     defaultChecked={props.data.roac_display === '1' ? true : false}
                     {...register('roac_display')}
                     />
+                    </div>
+                    <label
+                      className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
+                      htmlFor="inline-full-name"
+                    >
+                      Order By
+                    </label>
+                    <div className="w-2/3">
+                      <input
+                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        id="inline-full-name"
+                        type="number"
+                        defaultValue={props.data.roac_orderby}
+                        {...register('roac_orderby')}
+                      />
                     </div>
                   </div>
                   <div className="flex justify-end">

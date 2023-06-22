@@ -40,10 +40,10 @@ const index = () => {
               <Country country={country}/>
             </div>
             <div className="rounded bg-blue h-auto shadow-sm py-2">
-              <Province prov={prov.data} country={country}/>
+              <Province prov={prov} country={country}/>
             </div>
             <div className="rounded bg-blue h-auto shadow-sm py-2">
-              <City city={city.data} prov={prov.data}/>
+              <City city={city} prov={prov}/>
             </div>
     </div>
     </>

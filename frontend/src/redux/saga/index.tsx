@@ -5,7 +5,7 @@ import { handleCreateSkillType, handleDelSkillType, handleGeSkillType, handleUpd
 import { handleCreateSkillTemplete, handleDelSkillTemplete, handleGetSkillTemplete, handleUpdateSkillTemplete } from './skillTempeleteSaga'
 import { handleCreateModule, handleDelModule, handleGetModule, handleUpdateModule } from './modulesSaga'
 import { handleCreateAddressType, handleDelAddressType, handleGetAddressType, handleUpdateAddressType } from './addressTypeSaga'
-import { handleCreateRouteActions, handleDelRouteActions, handleGetRouteActions, handleUpdateRouteActions } from './routeActionsReduce'
+import { handleCreateRouteActions, handleDelRouteActions, handleGetRouteActions, handleUpdateDisplayRouteActions, handleUpdateRouteActions } from './routeActionsReduce'
 import { handleCreateCountry, handleDelCountry, handleGetCountry, handleUpdateCountry } from './countrySaga'
 import { handleCreateProv, handleDelProv, handleGetProv, handleUpdateProv } from './provSaga'
 import { handleCreateCity, handleDelCity, handleGetCity, handleUpdateCity } from './citySaga'
@@ -43,6 +43,7 @@ function* watchAll(){
         takeEvery(ActionTypes.DEL_ROUTE_ACTIONS , handleDelRouteActions),
         takeEvery(ActionTypes.CREATE_ROUTE_ACTIONS , handleCreateRouteActions),
         takeEvery(ActionTypes.UPDATE_ROUTE_ACTIONS , handleUpdateRouteActions),
+        takeEvery(ActionTypes.UPDATE_DISPLAY_ROUTE_ACTIONS , handleUpdateDisplayRouteActions),
 
         takeEvery(ActionTypes.GET_COUNTRY , handleGetCountry),
         takeEvery(ActionTypes.DEL_COUNTRY , handleDelCountry),

@@ -19,6 +19,8 @@ switch(type){
             return{state, refreshRouteActions:false};
         case ActionTypes.UPDATE_ROUTE_ACTIONS_RESPONSE:
             return{state, refreshRouteActions:false};
+        case ActionTypes.UPDATE_DISPLAY_ROUTE_ACTIONS_RESPONSE:
+            return{state, refreshRouteActions:false};
         default :
         return state
 }

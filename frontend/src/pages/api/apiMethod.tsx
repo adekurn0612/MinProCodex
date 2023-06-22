@@ -133,7 +133,10 @@ const createRA = (data : any)=>{
 const updateRA=(data : any)=>{
   return axios.patch(`route-actions/${data.roac_id}` , data)
 }
-
+const updateDisplayRA=(data : any)=>{
+  console.log(data)
+  return axios.patch(`route-actions/display/${data.roac_id}` , data)
+}
 
 //country
 const getCountry =()=>{
@@ -221,5 +224,6 @@ export default  {
     createRA,
     updateRA,
     createST,
-    updateST
+    updateST,
+    updateDisplayRA
 }
