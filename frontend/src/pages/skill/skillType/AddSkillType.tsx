@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { reqCreateCat, reqCreateSkillType} from '@/redux/actions/actionReducer';
 
 const AddSkillType = (props: any) => {
+  console.log(props)
   const [selected, setSelected] = useState('');
 
   const dispatch = useDispatch();

@@ -6,7 +6,7 @@ export class CreateCityDto {
     @IsString()
     city_name : string;
 
-    @IsNotEmpty()
+    // @IsNotEmpty()
     @IsNumber()
     city_prov_id : number;
 }

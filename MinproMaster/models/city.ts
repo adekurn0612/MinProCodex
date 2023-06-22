@@ -6,11 +6,7 @@ import {
   Index,
   Sequelize,
   ForeignKey,
-  BelongsTo,
-  HasMany,
 } from 'sequelize-typescript';
-import { province } from './province';
-import { address } from './address';
 
 export interface cityAttributes {
   city_id?: number;
@@ -44,13 +40,6 @@ export class city
   })
   city_modified_date?: Date;
 
-  @ForeignKey(() => province)
   @Column({ allowNull: true, type: DataType.INTEGER })
   city_prov_id?: number;
-
-  @BelongsTo(() => province)
-  province?: province;
-
-  @HasMany(() => address, { sourceKey: 'city_id' })
-  addresses?: address[];
 }

@@ -11,10 +11,10 @@ update✔️
 delete✔️
 
 skillTemplete
-get
-create
-update
-delete
+get✔️
+create✔️
+update✔️
+delete✔️
 
 modules
 get✔️
@@ -24,9 +24,9 @@ delete✔️
 
 RouteAction
 get✔️
-create
-update
-delete
+create✔️
+update✔️
+delete✔️
 update display
 
 COUNTRY

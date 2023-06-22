@@ -5,8 +5,14 @@ import { route_actions } from 'models';
 
 @Injectable()
 export class RouteActionsService {
-  create(createRouteActionDto: CreateRouteActionDto) {
-    return 'This action adds a new routeAction';
+  async create(createRouteActionDto: CreateRouteActionDto) {
+    try {
+      const result = await route_actions.create(createRouteActionDto)
+      console.log('object')
+    } catch (error) {
+      console.log(error.message)
+      // return error.message
+    }
   }
 
   async findAll() {
@@ -14,7 +20,7 @@ export class RouteActionsService {
       const result =await route_actions.findAll()
       return result;
     } catch (error) {
-      
+      return error.message
     }
   }
 
@@ -22,11 +28,21 @@ export class RouteActionsService {
     return `This action returns a #${id} routeAction`;
   }
 
-  update(id: number, updateRouteActionDto: UpdateRouteActionDto) {
-    return `This action updates a #${id} routeAction`;
+  async update(id: number, updateRouteActionDto: UpdateRouteActionDto) {
+    try {
+      const result = await route_actions.update(updateRouteActionDto,{where : {roac_id : id}})
+      return result
+    } catch (error) {
+      return error.message
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} routeAction`;
+  async remove(id: number) {
+    try {
+      const result =await route_actions.destroy({where: {roac_id : id}})
+      return result
+    } catch (error) {
+      return error.message
+    }
   }
 }

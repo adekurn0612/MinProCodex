@@ -122,6 +122,7 @@ export const resUpdateSkillType = (payload : any )=>{
     }
 }
 
+//skill templete
 export const reqSkillTemplete=()=>{
     return{
         type : ActionTypes.SKILL_TEMPLETE,
@@ -134,6 +135,48 @@ export const resSkillTemplete=(payload : any)=>{
         payload
     }
 }
+export const reqDelSkillTemplete=(payload : number)=>{
+    return{
+        type : ActionTypes.DEL_SKILL_TEMPLETE,
+        payload
+    }
+}
+
+export const resDelSkillTemplete=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_SKILL_TEMPLETE_RESPONSE,
+        payload
+    }
+}
+
+export const reqCreateSkillTemplete=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_SKILL_TEMPLETE,
+        payload
+    }
+}
+
+export const resCreateSkillTemplete=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_SKILL_TEMPLETE_RESPONSE,
+        payload
+    }
+}
+
+export const reqUpdateSkillTemplete=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_SKILL_TEMPLETE,
+        payload
+    }
+}
+
+export const resUpdateSkillTemplete=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_SKILL_TEMPLETE_RESPONSE,
+        payload
+    }
+}
+
 
 //module
 export const reqGetModule=()=>{
@@ -189,6 +232,7 @@ export const resDelModule=(payload : any)=>{
         payload
     }
 }
+
 
 
 //ADDRESS-TYPE
@@ -261,6 +305,48 @@ export const resGetRouteActions=(payload : any)=>{
     }
 }
 
+export const reqDelRouteAction=(payload :number)=>{
+    return{
+        type : ActionTypes.DEL_ROUTE_ACTIONS,
+        payload
+    }
+}
+
+export const resDelRouteActions=(payload : any)=>{
+    return{
+        type : ActionTypes.DEL_ROUTE_ACTIONS_RESPONSE,
+        payload
+    }
+}
+
+
+export const reqCreateRouteAction=(payload :any)=>{
+    return{
+        type : ActionTypes.CREATE_ROUTE_ACTIONS,
+        payload
+    }
+}
+
+export const resCreateRouteActions=(payload : any)=>{
+    return{
+        type : ActionTypes.CREATE_ROUTE_ACTIONS_RESPONSE,
+        payload
+    }
+}
+
+export const reqUpdateRouteAction=(payload :any)=>{
+    return{
+        type : ActionTypes.UPDATE_ROUTE_ACTIONS,
+        payload
+    }
+}
+
+export const resUpdateRouteActions=(payload : any)=>{
+    return{
+        type : ActionTypes.UPDATE_ROUTE_ACTIONS_RESPONSE,
+        payload
+    }
+}
 //country
 export const reqGetCountry=()=>{
     return{

@@ -1,11 +1,20 @@
-import React from 'react'
+import { reqDelRouteAction } from '@/redux/actions/actionReducer'
+import React, { useState } from 'react'
 import { BsPencil } from 'react-icons/bs'
 import { GrAddCircle } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
 import Swal from 'sweetalert2'
+import { useDispatch } from 'react-redux'
+import AddRA from './addRouteActions'
+import EditRA from './editRouteActions'
 
 const RouteActions = (props : any) => {
-  const handleDelete = async (data : string) => {
+  console.log(props.module)
+const dispatch = useDispatch()
+const [isAdd, setIsAdd] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [data, setData] = useState('');
+  const handleDelete = async (data : number) => {
     console.log('1',{data})
     try {
       const result = await Swal.fire({
@@ -19,7 +28,7 @@ const RouteActions = (props : any) => {
       });
   
       if (result.isConfirmed) {
-        // dispatch(reqDelSkillType(data))
+        dispatch(reqDelRouteAction(data))
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
@@ -65,7 +74,8 @@ const RouteActions = (props : any) => {
                   </th>
                   <th scope="col" className="px-6 py-4 text-right">
                 <div className="flex justify-end">
-                    <button className="flex items-center">
+                    <button className="flex items-center"
+                    onClick={()=>setIsAdd(true)}>
                     <GrAddCircle className="mr-1"></GrAddCircle>
                     <span className="text-sm">Add</span>
                     </button>
@@ -82,21 +92,16 @@ const RouteActions = (props : any) => {
                     <td className="whitespace-nowrap px-6 py-4 font-medium">{roac.roac_name}</td>
                     <td className="whitespace-nowrap px-6 py-4 font-medium">{roac.roac_module_name}</td>
                     <td className="whitespace-nowrap px-6 py-4 font-medium">
-                    {roac.roac_display === 1 ? (
-                      <span>
-                        <label className="switch">
-                          <input type="checkbox" checked />
-                          <span className="slider"></span>
-                        </label>
-                      </span>
-                    ) : (
-                      <span>
-                        <label className="switch">
-                          <input type="checkbox" />
-                          <span className="slider"></span>
-                        </label>
-                      </span>
-                    )}
+                    <td className="whitespace-nowrap px-6 py-4 font-medium">
+                  <input
+                    className="mr-2 mt-[0.3rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-neutral-300 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-neutral-100 after:shadow-[0_0px_3px_0_rgb(0_0_0_/_7%),_0_2px_2px_0_rgb(0_0_0_/_4%)] after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] hover:cursor-pointer focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[3px_-1px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:bg-blue-500 checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ml-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-blue-500 checked:after:shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),_0_2px_2px_0_rgba(0,0,0,0.14),_0_1px_5px_0_rgba(0,0,0,0.12)] checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] dark:bg-neutral-600 dark:after:bg-neutral-400 dark:checked:bg-blue-500 dark:checked:after:bg-blue-500 dark:focus:before:shadow-[3px_-1px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca]"
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckDefault"
+                    checked={roac.roac_display === '1' ? true : false}
+                    />
+                </td>
+
                   </td>
 
                     <td className="whitespace-nowrap px-6 py-4 font-medium">{roac.roac_orderby}</td>
@@ -105,13 +110,13 @@ const RouteActions = (props : any) => {
                     <BsPencil className="mr-1" />
                           <span className="mr-4 font-bold">
                             <button onClick={() => {
-                            // setDataCat(stype );
-                            // setIsEdit(true);
+                            setData(roac);
+                            setIsEdit(true);
                           }}>Edit</button> 
                             </span>
                           <TiDeleteOutline className="mr-1" />
                           <span className="font-bold">
-                          <button onClick={()=>handleDelete('12')}
+                          <button onClick={()=>handleDelete(roac.roac_id)}
                           >Delete</button> 
                             </span>
                     </div>
@@ -123,6 +128,12 @@ const RouteActions = (props : any) => {
           </div>
         </div>
       </div>
+      {isAdd?(
+        <AddRA show={isAdd} closeModal={()=>setIsAdd(false)} dataModule={props.module}/>
+      ):('')}
+      {isEdit?(
+        <EditRA show={isEdit} closeModal={()=>setIsEdit(false)} data={data} dataModule={props.module}/>
+      ):('')}
     </div>
   )
 }

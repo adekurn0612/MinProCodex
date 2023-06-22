@@ -6,9 +6,7 @@ import {
   Index,
   Sequelize,
   ForeignKey,
-  HasMany,
 } from 'sequelize-typescript';
-import { skill_template } from './skill_template';
 
 export interface skill_typeAttributes {
   skty_name: string;
@@ -21,7 +19,4 @@ export class skill_type
 {
   @Column({ primaryKey: true, type: DataType.STRING(55) })
   skty_name!: string;
-
-  @HasMany(() => skill_template, { sourceKey: 'skty_name' })
-  skill_templates?: skill_template[];
 }

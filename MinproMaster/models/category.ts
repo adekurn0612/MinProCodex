@@ -6,10 +6,7 @@ import {
   Index,
   Sequelize,
   ForeignKey,
-  HasMany,
-  BelongsTo,
 } from 'sequelize-typescript';
-// import { category } from './category';
 
 export interface categoryAttributes {
   cate_id?: number;
@@ -36,7 +33,6 @@ export class category
   @Column({ allowNull: true, type: DataType.STRING(255) })
   cate_name?: string;
 
-  @ForeignKey(() => category)
   @Column({ allowNull: true, type: DataType.INTEGER })
   cate_cate_id?: number;
 
@@ -46,10 +42,4 @@ export class category
     defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
   })
   cate_modified_date?: Date;
-
-  @HasMany(() => category, { sourceKey: 'cate_id' })
-  categories?: category[];
-
-  @BelongsTo(() => category)
-  category?: category;
 }

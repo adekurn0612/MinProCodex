@@ -23,7 +23,7 @@ console.log('object' , routeActions)
               <Modules module={modules}/>
             </div>
             <div className="rounded bg-blue h-auto shadow-sm py-2">
-              <RouteActions routeActions={routeActions} />
+              <RouteActions routeActions={routeActions} module={modules}/>
             </div>
     </div>
     </>

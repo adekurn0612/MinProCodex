@@ -6,9 +6,7 @@ import {
   Index,
   Sequelize,
   ForeignKey,
-  HasMany,
 } from 'sequelize-typescript';
-import { province } from './province';
 
 export interface countryAttributes {
   country_code: string;
@@ -33,7 +31,4 @@ export class country
     defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
   })
   country_modified_date?: Date;
-
-  @HasMany(() => province, { sourceKey: 'country_code' })
-  provinces?: province[];
 }

@@ -1,12 +1,55 @@
-import { reqSkillTemplete } from '@/redux/actions/actionReducer'
-import React, { useEffect } from 'react'
+import { reqDelSkillTemplete, reqSkillTemplete } from '@/redux/actions/actionReducer'
+import React, { useEffect, useState } from 'react'
 import { BsPencil } from 'react-icons/bs'
 import { GrAddCircle } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
+import Swal from 'sweetalert2'
+import AddST from './addSkillStemplete'
+import EditST from './editSkillTemplete'
 
 const SkillTemplete = (props : any) => {
-
+  console.log(props)
+  const dispatch = useDispatch();
+  const [isAdd, setIsAdd] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [data, setData] = useState('');
+  const handleDelete = async (data : number) => {
+    console.log('1',{data})
+    try {
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      });
+  
+      if (result.isConfirmed) {
+        // dispatch(reqDelSkillTemplete(data))
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        );
+      } else {
+        Swal.fire(
+          'Cancelled',
+          'Your file is safe.',
+          'info'
+        );
+      }
+    } catch (error) {
+      console.error('Error deleting data:', error);
+      Swal.fire(
+        'Error!',
+        'Failed to delete data. Please try again.',
+        'error'
+      );
+    }
+  };
    
   return (
     <div className="flex flex-col">
@@ -37,7 +80,8 @@ const SkillTemplete = (props : any) => {
                   </th>
                   <th scope="col" className="px-6 py-4 text-right">
                 <div className="flex justify-end">
-                    <button className="flex items-center">
+                    <button className="flex items-center"
+                    onClick={()=>setIsAdd(true)}>
                     <GrAddCircle className="mr-1"></GrAddCircle>
                     <span className="text-sm">Add</span>
                     </button>
@@ -46,24 +90,34 @@ const SkillTemplete = (props : any) => {
                 </tr>
               </thead>
               <tbody >
-                {props.skillTemplete.map((st : any, index : any) => (
+                {props.skillTemplete[0]?.map((st : any, index : any) => (
                   <tr
                     key={index}
                     className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600" }
                   >
-                    <td className="whitespace-nowrap px-6 py-4">1</td>
-                    <td className="whitespace-nowrap px-6 py-4">1</td>
-                    <td className="whitespace-nowrap px-6 py-4"></td>
-                    <td className="whitespace-nowrap px-6 py-4">{}</td>
-                    <td className="whitespace-nowrap px-6 py-4"></td>
-                    <td className="whitespace-nowrap px-6 py-4">{}</td>
+                    <td className="whitespace-nowrap px-6 py-4">{st.skte_skill}</td>
+                    <td className="whitespace-nowrap px-6 py-4">{st.skte_description}</td>
+                    <td className="whitespace-nowrap px-6 py-4">{st.skte_week}</td>
+                    <td className="whitespace-nowrap px-6 py-4">{st.skte_orderby}</td>
+                    <td className="whitespace-nowrap px-6 py-4">{st.skty_name}</td>
+                    <td className="whitespace-nowrap px-6 py-4">{st.parent_skte_skill}</td>
                     <td className="whitespace-nowrap px-6 py-4 text-right">
                     <div className="flex items-center justify-end">
-                        <BsPencil className="mr-1"></BsPencil>
-                        <span className="mr-4 font-bold">Edit</span>
-                        <TiDeleteOutline className="mr-1"></TiDeleteOutline>
-                        <span className="font-bold">Delete</span>
-                    </div>
+                    <BsPencil className="mr-1" />
+                          <span className="mr-4 font-bold">
+                            <button 
+                            onClick={() => {
+                            setData(st);
+                            setIsEdit(true);}}
+                          >Edit</button> 
+                            </span>
+                          <TiDeleteOutline className="mr-1" />
+                          <span className="font-bold">
+                          <button 
+                          onClick={()=>handleDelete(st.skte_id)}
+                          >Delete</button> 
+                            </span>
+                        </div>
                     </td>
                   </tr>
                  ))} 
@@ -72,6 +126,12 @@ const SkillTemplete = (props : any) => {
           </div>
         </div>
       </div>
+      {isAdd?(
+        <AddST show={isAdd} closeModal={()=>setIsAdd(false)} dataType={props.skillType} dataParent={props.skillTemplete}/>
+      ):('')}
+      {isEdit?(
+        <EditST show={isEdit} closeModal={()=>setIsEdit(false)} data={data} dataType={props.skillType} dataParent={props.skillTemplete}/>
+      ):('')}
     </div>
   )
 }

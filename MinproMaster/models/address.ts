@@ -6,9 +6,7 @@ import {
   Index,
   Sequelize,
   ForeignKey,
-  BelongsTo,
 } from 'sequelize-typescript';
-import { city } from './city';
 
 export interface addressAttributes {
   addr_id?: number;
@@ -53,10 +51,6 @@ export class address
   })
   addr_modifed_date?: Date;
 
-  @ForeignKey(() => city)
   @Column({ allowNull: true, type: DataType.INTEGER })
   addr_city_id?: number;
-
-  @BelongsTo(() => city)
-  city?: city;
 }

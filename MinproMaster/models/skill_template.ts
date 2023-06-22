@@ -6,11 +6,7 @@ import {
   Index,
   Sequelize,
   ForeignKey,
-  BelongsTo,
-  HasMany,
 } from 'sequelize-typescript';
-import { skill_type } from './skill_type';
-// import { skill_template } from './skill_template';
 
 export interface skill_templateAttributes {
   skte_id?: number;
@@ -57,20 +53,9 @@ export class skill_template
   })
   skte_modified_date?: Date;
 
-  @ForeignKey(() => skill_type)
   @Column({ allowNull: true, type: DataType.STRING(55) })
   skty_name?: string;
 
-  @ForeignKey(() => skill_template)
   @Column({ allowNull: true, type: DataType.INTEGER })
   skte_skte_id?: number;
-
-  @BelongsTo(() => skill_type)
-  skill_type?: skill_type;
-
-  @HasMany(() => skill_template, { sourceKey: 'skte_id' })
-  skill_templates?: skill_template[];
-
-  @BelongsTo(() => skill_template)
-  skill_template?: skill_template;
 }

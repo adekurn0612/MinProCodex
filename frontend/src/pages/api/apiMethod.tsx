@@ -44,10 +44,22 @@ const getallCat = () => {
     console.log(data)
     return axios.patch(`skill-type/${data.skty_name}`,data)
   }
-      
+
+  //skill _ tempelete
 const getallSkillTemplete = () => {
-            return axios.get('skill-templete')
-            } 
+       return axios.get('skill-template')
+       } 
+const delSKillTemplete =(id : any)=>{
+  return axios.delete(`skill-template/${id}`)
+}
+
+const createST = (data : any)=>{
+  return axios.post(`skill-template` ,data)
+}
+const updateST = (data : any)=>{
+  console.log(data)
+  return axios.patch(`skill-template/${data.skte_id}` ,data)
+}
 
 //modules
 const getModule = ()=>{
@@ -107,6 +119,19 @@ const deleteAddressType =(id : any)=>{
 
 const getRouteActions = ()=>{
   return axios.get('route-actions')
+}
+
+const delRouteActions =(id :number)=>{
+  return axios.delete(`route-actions/${id}`)
+}
+
+const createRA = (data : any)=>{
+  console.log('object' , data)
+  return axios.post('route-actions' , data)
+}
+
+const updateRA=(data : any)=>{
+  return axios.patch(`route-actions/${data.roac_id}` , data)
 }
 
 
@@ -190,5 +215,11 @@ export default  {
     updateCountry,
     createModule,
     delModule,
-    updateModule
+    updateModule,
+    delSKillTemplete,
+    delRouteActions,
+    createRA,
+    updateRA,
+    createST,
+    updateST
 }
