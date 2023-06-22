@@ -8,19 +8,27 @@ import { useDispatch, useSelector } from 'react-redux'
 import { reqGetAdressType, reqGetCity, reqGetCountry, reqGetProv } from '@/redux/actions/actionReducer'
 
 const index = () => {
-  const { addressType , refresh} = useSelector((state : any) => state.addressTypeReducer);
-  const { country } = useSelector((state :any) => state.countryReducer);
-  const { prov } = useSelector((state : any) => state.provReducer);
-  const { city } = useSelector((state :any) => state.cityReducer);
+  const { addressType , refreshAddressType} = useSelector((state : any) => state.addressTypeReducer);
+  const { country , refreashCountry } = useSelector((state :any) => state.countryReducer);
+  const { prov , refreshProv} = useSelector((state : any) => state.provReducer);
+  const { city , refreshCity} = useSelector((state :any) => state.cityReducer);
   const dispatch = useDispatch();
-console.log('object' , prov.data )
 
   useEffect(() => {
     dispatch(reqGetAdressType());
+  }, [refreshAddressType]);
+
+  useEffect(() => {
     dispatch(reqGetCountry());
+  }, [refreashCountry]);
+
+  useEffect(() => {
     dispatch(reqGetProv());
+  }, [refreshProv]);
+
+  useEffect(() => {
     dispatch(reqGetCity());
-  }, [refresh]);
+  }, [refreshCity]);
 
   return (
     <><BreadcrumbsSlice />

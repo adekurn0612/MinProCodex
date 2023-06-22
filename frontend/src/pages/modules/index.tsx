@@ -6,15 +6,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { reqGetModule, reqGetRouteAction } from '@/redux/actions/actionReducer'
 
 const index = () => {
-  const { modules , refresh} = useSelector((state : any) => state.modulesReducer);
-  const { routeActions} = useSelector((state :any) => state.routeActionsReducer);
+  const { modules , refreshModules} = useSelector((state : any) => state.modulesReducer);
+  const { routeActions , refreshRouteActions} = useSelector((state :any) => state.routeActionsReducer);
   const dispatch = useDispatch();
 console.log('object' , routeActions)
 
   useEffect(() => {
     dispatch(reqGetModule());
     dispatch(reqGetRouteAction());
-  }, [refresh]);
+  }, [refreshModules , refreshRouteActions]);
 
   return (
     <><BreadcrumbsSlice />

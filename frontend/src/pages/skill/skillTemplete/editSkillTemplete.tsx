@@ -67,7 +67,7 @@ const EditST = (props: any) => {
                   as="h3"
                   className="pb-3 text-center text-lg font-medium leading-6 text-gray-900"
                 >
-                  --Tambahkan Module--
+                  --Edit  Module--
                 </Dialog.Title>
                 <form className="space-y-6"  onSubmit={handleSubmit(handleRegistration)}>
                   <div className="flex items-center">
@@ -195,7 +195,7 @@ const EditST = (props: any) => {
                       className="shadow bg-teal-600 hover:bg-teal-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                       type="submit"
                     >
-                      Add
+                      Simpan
                     </button>
                   </div>
                 </form>

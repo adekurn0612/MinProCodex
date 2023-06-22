@@ -79,7 +79,7 @@ const Country = (props : any) => {
                 </tr>
               </thead>
               <tbody>
-                {props.country.map((cont : any, index : any) => (
+                {props.country?.map((cont : any, index : any) => (
                   <tr
                     key={index}
                     className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600"}

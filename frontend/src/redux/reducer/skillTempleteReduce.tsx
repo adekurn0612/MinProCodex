@@ -4,7 +4,7 @@ const initialState ={
     skillTemplete: [],
     message : '',
     status : '',
-    refresh: '',
+    refreshSkillTemplete : '',
 }
 
 
@@ -13,13 +13,13 @@ export default function SkillTempeleteReduce(state = initialState, action :any) 
         console.log(payload)
         switch (type) {
             case ActionType.SKILL_TEMPLETE_RESPONSE:
-            return {state , skillTemplete:payload ,status:payload.status, refresh:true};
+            return {state , skillTemplete:payload ,status:payload.status, refreshSkillTemplete :true};
             case ActionType.DEL_SKILL_TEMPLETE_RESPONSE:
-            return {state , refresh:true};
+            return {state , refreshSkillTemplete :false};
             case ActionType.CREATE_SKILL_TEMPLETE_RESPONSE:
-            return {state , refresh:true};
+            return {state , refreshSkillTemplete :false};
             case ActionType.UPDATE_SKILL_TEMPLETE_RESPONSE:
-            return {state , refresh:true};
+            return {state , refreshSkillTemplete :false};
             default:
                 return state;
             }

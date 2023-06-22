@@ -6,8 +6,8 @@ import BreadcrumbsSlice from '../shared/breadcrumbs';
 import { reqSkillTemplete, reqSkillType } from '@/redux/actions/actionReducer';
 
 const Index = () => {
-  const { skillTemplete } = useSelector((state : any) => state.skillTempeleteReducer);
-  const { skillType, message, refresh } = useSelector((state :any) => state.skillTypeReducer);
+  const { skillTemplete ,refreshSkillTemplete } = useSelector((state : any) => state.skillTempeleteReducer);
+  const { skillType,  refreshSkillType } = useSelector((state :any) => state.skillTypeReducer);
   const dispatch = useDispatch();
 console.log('skill',skillTemplete )
 
@@ -15,7 +15,7 @@ console.log('skill',skillTemplete )
   useEffect(() => {
     dispatch(reqSkillType());
     dispatch(reqSkillTemplete());
-  }, [refresh]);
+  }, [refreshSkillTemplete , refreshSkillType]);
 
   return (
     <>

@@ -4,7 +4,7 @@ const initialState ={
     addressType: [],
     message : '',
     status : '',
-    refresh: '',
+    refreshAddressType: '',
 }
 
 
@@ -13,13 +13,13 @@ export default function AddressTypeReduce(state = initialState, action :any) {
         console.log(payload)
         switch (type) {
             case ActionType.GET_ADDRESSTYPE_RESPONSE:
-            return {state , addressType:payload ,status:payload.status, refresh:true};
+            return {state , addressType:payload ,status:payload.status, refreshAddressType:true};
             case ActionType.CREATE_ADDTYPE_RESPONSE:
-            return {state , refresh:false}; 
+            return {state , refreshAddressType:false}; 
             case ActionType.DEL_ADDTYPE_RESPONSE:
-            return {state , refresh:false}; 
+            return {state , refreshAddressType:false}; 
             case ActionType.UPDATE_ADDTYPE_RESPONSE:
-            return {state , refresh:false};  
+            return {state , refreshAddressType:false};  
             default:
                 return state;
             }

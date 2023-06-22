@@ -4,7 +4,7 @@ const initialState ={
     city: [],
     message : '',
     status : '',
-    refresh: '',
+    refreshCity: '',
 }
 
 
@@ -13,13 +13,13 @@ export default function CityReduce(state = initialState, action :any) {
         console.log(payload)
         switch (type) {
             case ActionType.GET_CITY_RESPONSE:
-            return {state , city:payload ,status:payload.status, refresh:true};
-            // case ActionType.DEL_CITY_RESPONSE:
-            // return {state , refresh:false};
-            // case ActionType.CREATE_CITY_RESPONSE:
-            // return {state , refresh:false};
-            // case ActionType.UPDATE_CITY_RESPONSE:
-            // return {state , refresh:false};
+            return {state , city:payload ,status:payload.status, refreshCity:true};
+            case ActionType.DEL_CITY_RESPONSE:
+            return {state , refreshCity:false};
+            case ActionType.CREATE_CITY_RESPONSE:
+            return {state , refreshCity:false};
+            case ActionType.UPDATE_CITY_RESPONSE:
+            return {state , refreshCity:false};
             default:
                 return state;
             }

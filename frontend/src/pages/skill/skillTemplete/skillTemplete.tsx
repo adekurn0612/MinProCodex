@@ -28,7 +28,7 @@ const SkillTemplete = (props : any) => {
       });
   
       if (result.isConfirmed) {
-        // dispatch(reqDelSkillTemplete(data))
+        dispatch(reqDelSkillTemplete(data))
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
@@ -90,7 +90,7 @@ const SkillTemplete = (props : any) => {
                 </tr>
               </thead>
               <tbody >
-                {props.skillTemplete[0]?.map((st : any, index : any) => (
+                {props.skillTemplete && props.skillTemplete[0]?.map((st : any, index : any) => (
                   <tr
                     key={index}
                     className={index % 2 === 0 ? "bg-neutral-100 dark:bg-neutral-700" : "bg-white dark:bg-neutral-600" }

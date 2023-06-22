@@ -98,7 +98,7 @@ console.log(props.data.module_name)
                       className="shadow bg-teal-600 hover:bg-teal-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                       type="submit"
                     >
-                      Add
+                      Simpan
                     </button>
                   </div>
                 </form>
