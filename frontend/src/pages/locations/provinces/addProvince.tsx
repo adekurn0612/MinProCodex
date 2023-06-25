@@ -78,9 +78,21 @@ const AddProv = (props: any) => {
                       className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                       id="inline-full-name"
                       type="text"
-                      placeholder='3 digit province code'
-                      {...register('prov_code')}
+                      placeholder='5 Digit Province Code'
+                      {...register('prov_code', {
+                        required: 'Province Code is required',
+                        pattern: {
+                          value: /^[A-Z]{5}$/,
+                          message: 'Code must be 3 uppercase letters',
+                        },
+                      })}
                     />
+                    {errors.prov_code && (
+                  <div className='w-3/4 text-xs text-red-500'>
+                    {errors.prov_code.message}
+                  </div>
+                )}
+                    
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -96,8 +108,15 @@ const AddProv = (props: any) => {
                       id="inline-full-name"
                       type="text"
                       placeholder='province name'
-                      {...register('prov_name')}
+                      {...register('prov_name', {
+                        required: 'Province Code is required'
+                      })}
                     />
+                    {errors.prov_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.prov_name.message}
+                    </div>
+                  )}
                   </div>
                 </div>
                 <div className="flex items-center">

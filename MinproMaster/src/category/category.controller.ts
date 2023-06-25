@@ -27,14 +27,21 @@ export class CategoryController {
     return this.categoryService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCategoryDto: UpdateCategoryDto) {
-    const data = {
-      cate_name: updateCategoryDto.cate_name,
-      cate_cate_id: updateCategoryDto.cate_cate_id,
-    };
-    return this.categoryService.update(+id,data);
+@Patch(':id')
+update(@Param('id') id: string, @Body() updateCategoryDto: UpdateCategoryDto) {
+  const data = {
+    cate_name: updateCategoryDto.cate_name,
+    cate_cate_id: updateCategoryDto.cate_cate_id,
+  };
+
+  // Tambahkan pengecekan jika cate_cate_id tidak valid atau tidak ada
+  if (!updateCategoryDto.cate_cate_id) {
+    data.cate_cate_id = null;
   }
+
+  return this.categoryService.update(+id, data);
+}
+
 
   @Delete(':id')
   remove(@Param('id') id: string) {

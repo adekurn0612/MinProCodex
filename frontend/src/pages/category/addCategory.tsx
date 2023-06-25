@@ -1,19 +1,17 @@
 import React, { Fragment, useState } from 'react';
 import { Transition, Dialog } from '@headlessui/react';
-import { Listbox } from '@headlessui/react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { reqCreateCat} from '@/redux/actions/actionReducer';
 
 const AddCategory = (props: any) => {
-  const [selected, setSelected] = useState('');
 
   const dispatch = useDispatch();
 
   type FormValues = {
     cate_id: number;
     cate_name: string;
-    cate_cate_id: number;
+    cate_cate_id?: number;
   };
 
   const {
@@ -78,9 +76,17 @@ const AddCategory = (props: any) => {
                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"
-                        defaultValue="Jane Doe"
-                        {...register('cate_name')}
+                        placeholder='Categoryy'
+
+                        {...register('cate_name', {
+                          required: 'Category name is required'
+                        })}
                       />
+                      {errors.cate_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.cate_name.message}
+                    </div>
+                  )}
                     </div>
                   </div>
                   <div className="flex items-center">
@@ -90,19 +96,16 @@ const AddCategory = (props: any) => {
                     >
                       Parent Category
                     </label>
-<div className="w-2/3">
-  <select {...register('cate_cate_id')} className='rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900'>
-    <option value="">-- Pilih --</option> {/* Empty string to represent null */}
-    {props.data[0]?.map((dt: any) => (
-      <option key={dt.cate_id} value={dt.cate_id}>
-        {dt.cate_name}
-      </option>
-    ))}
-  </select>
-</div>
-
-
-
+                    <div className="w-2/3">
+                      <select  {...(e:any)=>{e.target.value?{...register('cate_cate_id')}:null}} className='rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900'>
+                        <option ></option>
+                        {props.data[0]?.map((dt: any) => (
+                          <option key={dt.cate_id} value={dt.cate_id}>
+                            {dt.cate_name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                   <div className="flex justify-end">
                     <button

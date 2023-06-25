@@ -5,6 +5,6 @@ export class UpdateCategoryDto {
     @IsString()
     cate_name : string;
 
-    @IsNotEmpty()
+    // @IsNotEmpty()
     cate_cate_id : any;
 }

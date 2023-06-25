@@ -82,8 +82,17 @@ console.log(props.data.module_name)
                         id="inline-full-name"
                         type="text"
                         defaultValue={props.data.module_name}
-                        {...register('module_name')}
+                        placeholder='Module name'
+
+                        {...register('module_name', {
+                          required: 'Module is required'
+                        })}
                       />
+                      {errors.module_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.module_name.message}
+                    </div>
+                  )}
                     </div>
                   </div>
                   <div className="flex justify-end">

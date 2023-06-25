@@ -77,9 +77,17 @@ const AddSkillType = (props: any) => {
                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"
-                        defaultValue="Jane Doe"
-                        {...register('skty_name')}
+                        placeholder='skill type name'
+
+                        {...register('skty_name', {
+                          required: 'Category name is required'
+                        })}
                       />
+                      {errors.skty_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.skty_name.message}
+                    </div>
+                  )}
                     </div>
                   </div>
                   <div className="flex justify-end">

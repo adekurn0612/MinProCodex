@@ -16,6 +16,6 @@ export class CreateSkillTemplateDto {
     @IsNotEmpty()
     skty_name:string;
 
-    skte_skte_id:number;
+    skte_skte_id?:number;
 }
 

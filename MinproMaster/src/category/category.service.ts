@@ -14,7 +14,7 @@ export class CategoryService {
         console.log(data)
         const createCategoryDtoJson = JSON.stringify(data);
         const result = await this.sequelize.query(`CALL master.insertcategory('${createCategoryDtoJson}');`);
-        return result;
+        return ('sucsess');
       } catch (error) {
         return error.message;
       }
@@ -37,8 +37,17 @@ export class CategoryService {
 
   async update(id: number, data: UpdateCategoryDto) {
     try {
+      const result = await category.update(
+        data,
+        {
+          where: {
+            cate_id: id
+          },
+          returning: true
+        }
+      );
       // const createCategoryDtoJson = JSON.stringify(data);
-      const result = await this.sequelize.query(`CALL master.updatecategory('${id}', '${data.cate_name}' , '${data.cate_cate_id}')`);
+      // const result = await this.sequelize.query(`CALL master.updatecategory('${id}', '${data.cate_name}' , '${data.cate_cate_id}')`);
       return result;
     } catch (error) {
       return error.message;

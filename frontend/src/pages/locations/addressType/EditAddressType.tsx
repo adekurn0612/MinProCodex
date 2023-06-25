@@ -68,8 +68,17 @@ const EditAddressType = (props: any) => {
                   <input
                         type="hidden"
                         defaultValue={props.data.adty_id}
-                        {...register('adty_id')}
+                        placeholder='address type'
+
+                        {...register('adty_name', {
+                          required: 'Address Type is required'
+                        })}
                       />
+                      {errors.adty_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.adty_name.message}
+                    </div>
+                  )}
                     <label
                       className="text-gray-500 font-bold md:text-right flex-shrink-0 w-1/3 pr-2"
                       htmlFor="inline-full-name"

@@ -6,12 +6,12 @@ import { useDispatch } from 'react-redux';
 
 const EditCategory = (props: any) => {
   const dispatch = useDispatch();
-console.log('asw',props.list[0])
+console.log('asw',props)
 // console.log('cat',props.data)
   type FormValues = {
     cate_id: number;
     cate_name: string;
-    cate_cate_id: number;
+    cate_cate_id?: number;
   };
 
   const {
@@ -26,7 +26,10 @@ console.log('asw',props.list[0])
     props.closeModal()
   };
 
-  const [selected, setSelected] = useState('');
+  console.log("parent", props.data)
+
+  const [selectedValue, setSelectedValue] = useState(props.data.cate_cate_id)
+
 
 
   return (
@@ -87,8 +90,17 @@ console.log('asw',props.list[0])
                         id="inline-full-name"
                         type="text"
                         defaultValue={props.data.cate_name}
-                        {...register('cate_name')}
+                        placeholder='Categoryy'
+
+                        {...register('cate_name', {
+                          required: 'Category name is required'
+                        })}
                       />
+                      {errors.cate_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.cate_name.message}
+                    </div>
+                  )}
                     </div>
                   </div>
                   <div className="flex items-center">
@@ -99,8 +111,14 @@ console.log('asw',props.list[0])
                       Parent Category
                     </label>
                     <div className="w-2/3">
-                    <select {...register('cate_cate_id')} className='rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900'>
-                    <option value="">-- Pilih --</option> {/* Empty string to represent null */}
+                    <select defaultValue={selectedValue} 
+                    // {...(e:any)=>{e.target.value?
+                      {...register('cate_cate_id')}
+                      // :null}} 
+                    className='rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900'
+                    // onChange={(e)=>setSelectedValue(e.target.value)}
+                    >
+                    <option ></option> {/*Empty string to represent null*/}
                     {props.list[0]?.map((ct: any) => (
                       <option key={ct.cate_id} value={ct.cate_id} >
                         {ct.cate_name}

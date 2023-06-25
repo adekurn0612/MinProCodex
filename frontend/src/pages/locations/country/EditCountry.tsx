@@ -113,8 +113,17 @@ const EditCountry = (props: any) => {
                         id="inline-full-name"
                         type="text"
                         defaultValue={props.data.country_name}
-                        {...register('country_name')}
+                        placeholder='Country Name'
+                        {...register('country_name', {
+                          required: 'Country Name is required'
+                        })}
                       />
+                      {errors.country_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.country_name.message}
+                    </div>
+                  )}
+                      
                     </div>
                   </div>
                   

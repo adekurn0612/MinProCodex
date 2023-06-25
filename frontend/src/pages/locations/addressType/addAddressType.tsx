@@ -76,8 +76,17 @@ const AddAddressType = (props: any) => {
                         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"
-                        {...register('adty_name')}
+                        placeholder='address type'
+
+                        {...register('adty_name', {
+                          required: 'Address Type is required'
+                        })}
                       />
+                      {errors.adty_name && (
+                    <div className='w-3/4 text-xs text-red-500'>
+                      {errors.adty_name.message}
+                    </div>
+                  )}
                     </div>
                   </div>
                   <div className="flex justify-end">

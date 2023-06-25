@@ -18,8 +18,10 @@ const EditST = (props: any) => {
     skte_week : string;
     skte_orderby : string;
     skty_name : string;
-    skte_skte_id : number ;
+    skte_skte_id? : number ;
   };
+
+  const [selectedValue, setSelectedValue] = useState(props.data.roac_module_name)
 
   const {
     register,
@@ -103,10 +105,11 @@ const EditST = (props: any) => {
                     </label>
                     <div className="w-2/3">
                     <select
+                    value={selectedValue}
+                    
                       {...register('skty_name')}
                       className="text-center rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
-                    >
-                      <option value="">-- Pilih --</option>
+                      onChange={(e)=>setSelectedValue(e.target.value)}>
                       {props.dataType?.map((dt: any) => (
                         <option key={dt.skty_name} value={dt.skty_name}>
                           {dt.skty_name}
@@ -124,10 +127,11 @@ const EditST = (props: any) => {
                     </label>
                     <div className="w-2/3">
                     <select
-                      {...register('skte_skte_id')}
+                      {...(e:any)=>{e.target.value?{...register('skte_skte_id')}:null}}
+                      defaultValue={props.data.skty_name}
                       className="text-center rounded-md border-solid-gray-400 border-2 p-3 md:text-md w-full text-gray-900"
                     >
-                      <option value="">-- Pilih --</option>
+                      <option ></option>
                       {props.dataParent[0].map((dp: any) => (
                         <option key={dp.skte_id} value={dp.skte_id}>
                           {dp.skte_skill}
